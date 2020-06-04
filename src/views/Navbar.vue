@@ -8,7 +8,7 @@
         <v-btn text to="/about">About</v-btn>
         <v-btn text to="/car/audi">Car</v-btn>
       </v-toolbar-items>
-      <v-app-bar-nav-icon class="hidden-xs-and-up" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon class="hidden-sm-and-up" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
 
     <!-- Start of mobile side menu -->
