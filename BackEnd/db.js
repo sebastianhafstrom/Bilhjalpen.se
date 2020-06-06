@@ -24,6 +24,11 @@ function getAllBrands() {
     return doc
 }
 
+function getAllModels() {
+    let doc = models.find().toArray().catch(error => console.error(error))
+    return doc
+}
+
 function getAllModelsGiveBrand(brandName) {
     let query = {brand: brandName}
     let doc = models.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
@@ -39,5 +44,6 @@ function getModelAndSpecs(name) {
 module.exports = {
     getAllBrands: getAllBrands,
     getAllModelsGiveBrand: getAllModelsGiveBrand,
-    getModelAndSpecs: getModelAndSpecs
+    getModelAndSpecs: getModelAndSpecs,
+    getAllModels: getAllModels
 }

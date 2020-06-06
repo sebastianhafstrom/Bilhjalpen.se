@@ -26,7 +26,7 @@ Vue.use(VueRouter)
     component: Car,
     children: [
       {
-        path: '',
+        path: 'specs',
         component: Specs
       },
       {

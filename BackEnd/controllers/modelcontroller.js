@@ -2,6 +2,13 @@ var db = require('../db.js')
 var express = require('express')
 var router = express.Router()
 
+// Get all models
+router.get('/', function(req, res) {
+    db.getAllModels().then(results => {
+        res.json({models: results})
+    })
+})
+
 // // Get for individual brand
 router.get('/:name', function(req, res) {
     db.getModelAndSpecs(req.params.name).then(results => {

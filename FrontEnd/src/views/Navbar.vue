@@ -5,8 +5,6 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn text to="/" exact>Home</v-btn>
-        <v-btn text to="/about">About</v-btn>
-        <v-btn text to="/car/audi">Car</v-btn>
       </v-toolbar-items>
       <v-app-bar-nav-icon class="hidden-sm-and-up" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
@@ -45,8 +43,6 @@ export default {
     drawer: false, // Hide mobile side menu by default
     items: [
       { text: "Home", icon: "mdi-home", link: "/" },
-      { text: "About", icon: "mdi-account", link: "/about" },
-      { text: 'Car', icon: 'mdi-car', link: '/car/audi'}
     ],
     inset: false
   })
