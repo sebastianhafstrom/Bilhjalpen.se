@@ -4,9 +4,8 @@
   "description": "Backend for CarPicker",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
-    "dev": "nodemon ./src/server.js",
-    "start": "node ./src/server.js"
+    "dev": "nodemon ./server.js",
+    "start": "node ./server.js"
   },
   "author": "Sebastian Hafström <hello@sebastianhafstrom.com> (https://sebastianhafstrom.com)",
   "repository": {
