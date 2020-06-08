@@ -22,10 +22,11 @@ jobs:
 
     - name: npm install, build, and test
       run: |
-        cd BackEnd
+        pushd BackEnd
         npm install
         npm run build --if-present
         npm run test --if-present
+        popd
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v1
