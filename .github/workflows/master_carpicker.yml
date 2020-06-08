@@ -34,4 +34,4 @@ jobs:
         app-name: 'carpicker'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_49b33662d1c944d69129df85d58db6c9 }}
-        package: .
+        package: ./BackEnd

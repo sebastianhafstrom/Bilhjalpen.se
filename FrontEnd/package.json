@@ -1,11 +1,16 @@
 {
   "name": "carpicker-vue",
+  "description": "Frontend for CarPicker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hafmaestro/carpicker-vue"
   },
   "dependencies": {
     "axios": "^0.19.2",

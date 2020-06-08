@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for CarPicker",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\"",
@@ -9,6 +9,10 @@
     "start": "node ./src/server.js"
   },
   "author": "Sebastian Hafström <hello@sebastianhafstrom.com> (https://sebastianhafstrom.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hafmaestro/carpicker-vue"
+  },
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
