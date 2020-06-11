@@ -7,7 +7,7 @@
             </v-col>
             <v-col sm="12" md="6">
                 <v-img
-                :src="require('../assets/logos/Nissan.png')"
+                :src="require('@/assets/logos/Nissan.png')"
                 contain
                 height="200"
                 />

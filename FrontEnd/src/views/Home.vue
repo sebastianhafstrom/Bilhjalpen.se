@@ -70,7 +70,7 @@
       <v-col v-for="model in filteredModels" v-model="filteredModels" :key="model._id" xl="3" md="4" sm="6" xs="12">
         <v-card class="mx-auto">
           <v-img 
-            :src="require('../assets/cars/' + model.name + '.jpg')" contain></v-img>
+            :src="require('@/assets/cars/' + model.name + '.jpg')" contain></v-img>
 
           <v-card-title>
             {{ model.name }}
@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { api } from '../Api2.js'
+import { api } from '@/Api.js'
 
 
   export default {
