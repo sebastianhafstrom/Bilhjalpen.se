@@ -16,6 +16,7 @@
 export default {
   name: "Footer",
   data: () => ({
+    message: "Hello"
   })
 };
 </script>
