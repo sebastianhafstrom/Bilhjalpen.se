@@ -102,7 +102,7 @@
 </template>
 
 <script>
-import { api } from '../Api.js'
+import { api } from '../Api2.js'
 
 
   export default {
