@@ -111,7 +111,7 @@ import { api } from '../Api.js'
     data: () => ({
       brands: [],
       filteredBrands: [],
-      models: [], // All the models from the database
+      models: [], // All the models from the
       filteredModels: [], // Models displayed depending on the choosen filter
       loading: true,
       countries: ['Alla'],
