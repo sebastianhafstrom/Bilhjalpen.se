@@ -108,12 +108,8 @@ import { api } from '@/Api.js'
     name: 'Home',
 
     data: () => ({
-      brands: [],
-      filteredBrands: [],
       models: [], // All the models from the
       filteredModels: [], // Models displayed depending on the choosen filter
-      loading: true,
-      countries: ['Alla'],
       modelBrands: [],
       selectedCountry: null,
       selectedDrivmedel: null,
@@ -125,7 +121,6 @@ import { api } from '@/Api.js'
       vaxellada: ['Manuell', 'Automat']
     }),
     created () {
-      this.getBrands()
       this.getModels()
     },
     methods: {
@@ -146,15 +141,6 @@ import { api } from '@/Api.js'
             }
           })
         }
-
-      },
-      getCountries(){
-        this.brands.forEach(element => {
-          if(!this.countries.includes(element.origin)){
-            this.countries.push(element.origin)
-          }
-        });
-        this.countries.sort()
       },
       getBrandsFromModels(){
         this.models.forEach(model => {
@@ -162,9 +148,8 @@ import { api } from '@/Api.js'
             this.modelBrands.push(model.brand)
           }
         });
-        this.countries.sort()
       },
-      getBrands () {
+      /* getBrands () {
         api.get('/brands')
         .then(response => {
           this.brands = response.data.brands
@@ -174,7 +159,7 @@ import { api } from '@/Api.js'
         .catch(error => {
           console.log(error)
         })
-      },
+      }, */
       getModels () {
         api.get('/models')
         .then(response => {
