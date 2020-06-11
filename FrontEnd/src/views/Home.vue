@@ -69,7 +69,7 @@
     <v-row style="min-height: 1000px;">
       <v-col v-for="model in filteredModels" v-model="filteredModels" :key="model._id" xl="3" md="4" sm="6" xs="12">
         <v-card class="mx-auto">
-          <v-img :src="'/img/cars/' + model.name + '.jpg'" contain></v-img>
+          <v-img :src="'/img/cars/' + model.name + '.webp'" contain></v-img>
 
           <v-card-title>
             {{ model.name }}
