@@ -21,7 +21,7 @@
     <div 
       id="bilar"
       style="" 
-      class="d-flex flex-row justify-start flex-wrap pt-8">
+      class="d-flex flex-row justify-start flex-wrap pt-8 align-center">
       
       <v-select
           :items="kaross"
@@ -64,7 +64,7 @@
           multiple
           @change="useFilter()"
         ></v-select>
-        <p v-if="filteredModels.length && models.length">Antal bilar som matchar: {{filteredModels.length}} av {{models.length}}</p>
+        <p v-if="filteredModels.length && models.length" class="ml-auto">Antal bilar som matchar: {{filteredModels.length}} av {{models.length}}</p>
     </div>
     <v-row style="min-height: 1000px;">
       <v-col v-for="model in filteredModels" v-model="filteredModels" :key="model._id" xl="3" md="4" sm="6" xs="12">
@@ -102,8 +102,7 @@
 </template>
 
 <script>
-/* import {api} from '../Api.js'; */
-import axios from 'axios'
+import { api } from '../Api.js'
 
 
   export default {
@@ -167,8 +166,7 @@ import axios from 'axios'
         this.countries.sort()
       },
       getBrands () {
-        axios
-        .get('http://localhost:3000/api/brands')
+        api.get('/brands')
         .then(response => {
           this.brands = response.data.brands
           this.filteredBrands = response.data.brands
@@ -179,8 +177,7 @@ import axios from 'axios'
         })
       },
       getModels () {
-        axios
-        .get('http://localhost:3000/api/models')
+        api.get('/models')
         .then(response => {
           this.models = response.data.models
           this.getBrandsFromModels()
