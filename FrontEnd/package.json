@@ -8,6 +8,10 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "engines": {
+    "node": "10.x",
+    "npm": "6.7.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hafmaestro/carpicker-vue"
