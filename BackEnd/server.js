@@ -14,6 +14,10 @@ app.use(express.static('public'))
 app.options('*', cors())
 app.use(cors())
 
+app.get('/', function(req, res) {
+    res.send("<h1>Welcome to the CarPicker API</h1>");
+})
+
 app.use('/api/brands', brandController.router)
 app.use('/api/models', modelController.router)
 

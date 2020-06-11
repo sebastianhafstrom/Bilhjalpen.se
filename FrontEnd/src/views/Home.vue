@@ -1,61 +1,99 @@
 <template>
   <v-container>
-    <v-row class="text-center">
-      
-
-      <v-col cols="12" class="mb-4 mt-8">
+    <v-row class="text-center d-flex align-center justify-center flex-column" style="height: 400px;">
         <h1 class="display-2 font-weight-bold mb-3">
           Välkommen till CarPicker
         </h1>
 
-        <p class="subheading font-weight-regular">
+        <p class="subheading font-weight-regular mx-8">
           Vi ger dig oberoende jämförelse mellan världens alla bilar.
         </p>
-      </v-col>
+        <v-btn
+          ref="button"
+          
+          color="primary"
+          @click="$vuetify.goTo('#bilar')"
+        >
+          Till bilarna
+        </v-btn>
     </v-row>
-    
-    
-    <v-row align="center" justify="center">
-        <v-col sm="12" md="6">
-          <v-overflow-btn
-            v-model="selectedCountry"
-            :items="countries"
-            label="Land"
-          ></v-overflow-btn>
-        </v-col>
-        <v-col sm="12" md="6">
-          <v-btn color="success" v-on:click="filterModels()">
-            Apply
-          </v-btn>
-        </v-col>
-    </v-row>
-    <v-row>
-      <v-col v-for="brand in filteredBrands" :key="brand._id" xl="2" md="3" sm="6" xs="12">
+    <v-divider></v-divider>
+    <div 
+      id="bilar"
+      style="" 
+      class="d-flex flex-row justify-start flex-wrap pt-8">
+      
+      <v-select
+          :items="kaross"
+          label="Kaross"
+          v-model="selectedKaross"
+          class="mr-4 flex-sm-grow-0"
+          color="green"
+          style="width: 250px; max-width: 400px;"
+          outlined
+          multiple
+          @change="useFilter()"
+        ></v-select>
+      <v-select
+          :items="drivmedel"
+          label="Drivmedel"
+          v-model="selectedDrivmedel"
+          class="mr-4 flex-sm-grow-0"
+          style="width: 250px; max-width: 400px;"
+          outlined
+          multiple
+          @change="useFilter()"
+        ></v-select>
+        <v-select
+          :items="vaxellada"
+          label="Växellåda"
+          v-model="selectedVaxellada"
+          class="mr-4 flex-sm-grow-0"
+          style="width: 250px; max-width: 400px;"
+          outlined
+          multiple
+          @change="useFilter()"
+        ></v-select>
+        <v-select
+          :items="modelBrands"
+          label="Märke"
+          v-model="selectedBrands"
+          class="mr-4 flex-sm-grow-0"
+          style="width: 250px; max-width: 400px;"
+          outlined
+          multiple
+          @change="useFilter()"
+        ></v-select>
+        <p v-if="filteredModels.length && models.length">Antal bilar som matchar: {{filteredModels.length}} av {{models.length}}</p>
+    </div>
+    <v-row style="min-height: 1000px;">
+      <v-col v-for="model in filteredModels" v-model="filteredModels" :key="model._id" xl="3" md="4" sm="6" xs="12">
         <v-card class="mx-auto">
-          <v-img src="https://audimediacenter-a.akamaihd.net/system/production/media/63328/images/9ad842ff41aba23e530617ae36f4062fa9d7bad8/A186773_full.jpg?1582428030" height="150px"></v-img>
+          <v-img 
+            :src="require('../assets/cars/' + model.name + '.jpg')" contain></v-img>
 
           <v-card-title>
-            {{ brand.name }}
+            {{ model.name }}
           </v-card-title>
           <v-card-subtitle>
-            {{ brand.origin}} | {{ brand.year}}
+            {{ model.brand}}
           </v-card-subtitle>
 
           <v-card-actions>
             <v-btn
               color="primary"
               text
-              :to="'/car/' + brand.name + '/specs'"
+              :to="'/car/' + model.name + '/specs'"
             >
               Läs mer
             </v-btn>
 
-            <v-btn
+            <!-- <v-btn
               color="primary"
               text
             >
               Jämför
-            </v-btn>
+            </v-btn> -->
           </v-card-actions>
         </v-card>
       </v-col>
@@ -64,28 +102,66 @@
 </template>
 
 <script>
-import axios from 'axios';
+/* import {api} from '../Api.js'; */
+import axios from 'axios'
+
 
   export default {
-    name: 'HelloWorld',
+    name: 'Home',
 
     data: () => ({
       brands: [],
       filteredBrands: [],
-      models: [],
+      models: [], // All the models from the database
+      filteredModels: [], // Models displayed depending on the choosen filter
       loading: true,
       countries: ['Alla'],
-      selectedCountry: null
+      modelBrands: [],
+      selectedCountry: null,
+      selectedDrivmedel: null,
+      selectedKaross: null,
+      selectedVaxellada: null,
+      selectedBrands: null,
+      drivmedel: ['Bensin', 'Diesel', "Hybrid", "El", "Gas"],
+      kaross: ['Kombi', 'Halvkombi', 'Sedan', 'SUV', 'Coupé', 'Cabriolet', 'Pickup'],
+      vaxellada: ['Manuell', 'Automat']
     }),
     created () {
       this.getBrands()
       this.getModels()
     },
     methods: {
+      useFilter() {
+        if(this.selectedBrands === null || this.selectedBrands.length == 0){
+          this.filteredModels = this.models;
+        }else if(this.selectedBrands !== null){
+          this.filteredModels = this.models.filter((model) => {
+            let check = false
+            this.selectedBrands.forEach(element => {
+              if(model.brand === element){
+                check = true;
+                return;
+              }
+            });
+            if(check){
+              return model;
+            }
+          })
+        }
+
+      },
       getCountries(){
         this.brands.forEach(element => {
           if(!this.countries.includes(element.origin)){
             this.countries.push(element.origin)
+          }
+        });
+        this.countries.sort()
+      },
+      getBrandsFromModels(){
+        this.models.forEach(model => {
+          if(!this.modelBrands.includes(model.brand)){
+            this.modelBrands.push(model.brand)
           }
         });
         this.countries.sort()
@@ -107,6 +183,8 @@ import axios from 'axios';
         .get('http://localhost:3000/api/models')
         .then(response => {
           this.models = response.data.models
+          this.getBrandsFromModels()
+          this.useFilter()
         })
         .catch(error => {
           console.log(error)
