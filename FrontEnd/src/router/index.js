@@ -7,7 +7,7 @@ import Reviews from '../views/Reviews.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
+const routes = [
   {
     path: '/',
     name: 'Home',
@@ -27,12 +27,20 @@ Vue.use(VueRouter)
         component: Reviews
       }
     ]
-
   }
 ]
 
+
+
 const router = new VueRouter({
   routes,
+  scrollBehavior (to, from, savedPosotion) {
+    if(savedPosotion){
+      return savedPosotion
+    } else {
+      return { x: 0, y: 0}
+    }
+  },
   mode: 'history'
 })
 
