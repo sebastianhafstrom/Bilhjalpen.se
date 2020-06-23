@@ -2,7 +2,9 @@
   <v-app>
     <navbar />
     <v-content>
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </v-content>
     <foot />
   </v-app>
