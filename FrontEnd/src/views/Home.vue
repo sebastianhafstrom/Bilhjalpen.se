@@ -44,7 +44,7 @@
           multiple
           @change="useFilter()"
         ></v-select>
-        <v-select
+        <!-- <v-select
           :items="vaxellada"
           label="Växellåda"
           v-model="selectedVaxellada"
@@ -53,7 +53,7 @@
           outlined
           multiple
           @change="useFilter()"
-        ></v-select>
+        ></v-select> -->
         <v-select
           :items="modelBrands"
           label="Märke"
@@ -178,11 +178,6 @@ import { api } from '@/Api.js'
         }else{
           this.filteredBrands = this.brands.filter(brand => brand.origin == this.selectedCountry);
         }
-        
-      },
-      getImgUrl(pet) {
-        var images = require.context('../assets/', false, /\.png$/)
-        return images('./' + pet + ".png")
       }
     }
   }
