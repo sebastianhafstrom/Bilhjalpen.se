@@ -41,9 +41,16 @@ function getModelAndSpecs(name) {
     return doc
 }
 
+function getModel(modelName) {
+    let query = {name: modelName}
+    let doc = models.findOne(query).catch(error => console.error(error))
+    return doc
+}
+
 module.exports = {
     getAllBrands: getAllBrands,
     getAllModelsGiveBrand: getAllModelsGiveBrand,
     getModelAndSpecs: getModelAndSpecs,
-    getAllModels: getAllModels
+    getAllModels: getAllModels,
+    getModel: getModel
 }
