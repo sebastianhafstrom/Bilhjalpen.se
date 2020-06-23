@@ -18,26 +18,21 @@ client.connect(err => {
     specs = db.collection('specs')
 })
 
+// Brandcontroller
 function getAllBrands() {
     let doc = brands.find().sort({name: 1}).toArray().catch(error => console.error(error))
-    // console.log(results)
     return doc
 }
 
+// Modelcontroller
 function getAllModels() {
     let doc = models.find().toArray().catch(error => console.error(error))
     return doc
 }
 
-function getAllModelsGiveBrand(brandName) {
+function getAllModelsGivenBrand(brandName) {
     let query = {brand: brandName}
     let doc = models.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
-    return doc
-}
-
-function getModelAndSpecs(name) {
-    let query = {model: name}
-    let doc = specs.find(query).sort({variant: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
@@ -47,10 +42,23 @@ function getModel(modelName) {
     return doc
 }
 
+//Specscontroller
+function getAllModelsWithSpecs(){
+    let doc = specs.find().toArray().catch(error => console.error(error))
+    return doc
+}
+
+function getModelWithSpecs(modelName) {
+    let query = {model: modelName}
+    let doc = specs.findOne(query).catch(error => console.error(error))
+    return doc
+}
+
 module.exports = {
     getAllBrands: getAllBrands,
-    getAllModelsGiveBrand: getAllModelsGiveBrand,
-    getModelAndSpecs: getModelAndSpecs,
     getAllModels: getAllModels,
-    getModel: getModel
+    getAllModelsGivenBrand: getAllModelsGivenBrand,
+    getModel: getModel,
+    getAllModelsWithSpecs: getAllModelsWithSpecs,
+    getModelWithSpecs: getModelWithSpecs,
 }
