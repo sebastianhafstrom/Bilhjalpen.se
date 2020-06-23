@@ -1,6 +1,7 @@
 var express = require('express')
 var brandController = require('./controllers/brandcontroller')
 var modelController = require('./controllers/modelcontroller')
+var specsController = require('./controllers/specscontroller')
 
 const bodyParser= require('body-parser')
 const port = process.env.PORT || 3000
@@ -23,6 +24,7 @@ app.get('/api', function(req, res) {
 
 app.use('/api/brands', brandController.router)
 app.use('/api/models', modelController.router)
+app.use('/api/specs', specsController.router)
 
 
 app.use((req, res, next) => {
