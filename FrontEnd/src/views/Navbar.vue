@@ -3,7 +3,7 @@
     <v-app-bar color="red accent-4" dark>
       <v-toolbar-title class="headline text-uppercase">CarPicker</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items class="hidden-xs-and-down">
         <v-btn text to="/" exact>Home</v-btn>
       </v-toolbar-items>
       <v-app-bar-nav-icon class="hidden-sm-and-up" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
