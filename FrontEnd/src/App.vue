@@ -6,7 +6,7 @@
         <router-view></router-view>
       </keep-alive>
     </v-content>
-    <footer />
+    <foot />
   </v-app>
 </template>
 
@@ -22,7 +22,7 @@ export default {
   }),
   components: {
     navbar: Navbar,
-    footer: Footer
+    foot: Footer
   }
 };
 </script>
