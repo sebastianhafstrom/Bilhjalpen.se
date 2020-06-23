@@ -30,17 +30,19 @@ const routes = [
   }
 ]
 
+const scrollBehavior = (to, from, savedPosotion) => {
+  if(savedPosotion){
+    return savedPosotion
+  } else {
+    return { x: 0, y: 0}
+  }
+}
+
 
 
 const router = new VueRouter({
   routes,
-  scrollBehavior (to, from, savedPosotion) {
-    if(savedPosotion){
-      return savedPosotion
-    } else {
-      return { x: 0, y: 0}
-    }
-  },
+  scrollBehavior,
   mode: 'history'
 })
 
