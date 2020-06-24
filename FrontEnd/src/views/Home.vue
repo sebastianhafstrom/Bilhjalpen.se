@@ -17,12 +17,11 @@
           Till bilarna
         </v-btn>
     </v-row>
-    <v-divider></v-divider>
+    <v-divider class="mx-xl-8"></v-divider>
     <div 
       id="bilar"
       style="" 
-      class="d-flex flex-row justify-start flex-wrap pt-8 align-center">
-      
+      class="d-flex flex-row justify-start flex-wrap pt-8 align-center mx-xl-8">
       <v-select
           :items="kaross"
           label="Kaross"
@@ -44,56 +43,19 @@
           multiple
           @change="useFilter()"
         ></v-select>
-        <!-- <v-select
-          :items="vaxellada"
-          label="Växellåda"
-          v-model="selectedVaxellada"
-          class="mr-4 flex-sm-grow-0"
-          style="width: 250px; max-width: 400px;"
-          outlined
-          multiple
-          @change="useFilter()"
-        ></v-select> -->
-        <v-select
-          :items="modelBrands"
-          label="Märke"
-          v-model="selectedBrands"
-          class="mr-4 flex-sm-grow-0"
-          style="width: 250px; max-width: 400px;"
-          outlined
-          multiple
-          @change="useFilter()"
-        ></v-select>
-        <p v-if="filteredModels.length && models.length" class="ml-auto">Antal bilar som matchar: {{filteredModels.length}} av {{models.length}}</p>
+        <p class="ml-auto">Antal bilar som matchar: {{filteredModels.length}} av {{models.length}}</p>
     </div>
-    <v-row style="min-height: 1000px;">
+    <v-row style="" class="">
       <v-col v-for="model in filteredModels" v-model="filteredModels" :key="model._id" xl="3" md="4" sm="6" xs="12">
-        <v-card class="mx-auto">
-          <v-img :src="'/img/cars/' + model.name + '.webp'" contain></v-img>
+        <v-card class="mx-auto" :to="'/car/' + model.model">
+          <v-img :src="'/img/cars/' + model.model + '.webp'" contain></v-img>
 
           <v-card-title>
-            {{ model.name }}
+            {{ model.model }}
           </v-card-title>
           <v-card-subtitle>
-            {{ model.brand}}
+            {{ model.brand}} | {{model.body_type}} | {{model.fuel_type}}
           </v-card-subtitle>
-
-          <v-card-actions>
-            <v-btn
-              color="primary"
-              text
-              :to="'/car/' + model.name + '/specs'"
-            >
-              Läs mer
-            </v-btn>
-
-            <!-- <v-btn
-              color="primary"
-              text
-            >
-              Jämför
-            </v-btn> -->
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -110,74 +72,75 @@ import { api } from '@/Api.js'
     data: () => ({
       models: [], // All the models from the
       filteredModels: [], // Models displayed depending on the choosen filter
-      modelBrands: [],
-      selectedCountry: null,
-      selectedDrivmedel: null,
-      selectedKaross: null,
-      selectedVaxellada: null,
-      selectedBrands: null,
-      drivmedel: ['Bensin', 'Diesel', "Hybrid", "El", "Gas"],
-      kaross: ['Kombi', 'Halvkombi', 'Sedan', 'SUV', 'Coupé', 'Cabriolet', 'Pickup'],
-      vaxellada: ['Manuell', 'Automat']
+      drivmedel: [],
+      kaross: [],
+      selectedDrivmedel: [],
+      selectedKaross: []
     }),
     created () {
       this.getModels()
     },
     methods: {
       useFilter() {
-        if(this.selectedBrands === null || this.selectedBrands.length == 0){
+        if(this.selectedDrivmedel.length == 0 && this.selectedKaross.length == 0){
           this.filteredModels = this.models;
-        }else if(this.selectedBrands !== null){
+        }else{
+
           this.filteredModels = this.models.filter((model) => {
-            let check = false
-            this.selectedBrands.forEach(element => {
-              if(model.brand === element){
-                check = true;
-                return;
-              }
-            });
-            if(check){
+            let fuelCheck = false
+            let bodyCheck = false
+            if(!this.selectedDrivmedel.length == 0){
+              this.selectedDrivmedel.forEach(element => {
+                if(model.fuel_type === element){
+                  fuelCheck = true;
+                  return;
+                }
+              });
+            }else{
+              fuelCheck = true
+            }
+            if(!this.selectedKaross.length == 0){
+              this.selectedKaross.forEach(element => {
+                if(model.body_type === element){
+                  bodyCheck = true;
+                  return;
+                }
+              });
+            }else{
+              bodyCheck = true
+            }
+            
+            if(fuelCheck && bodyCheck){
               return model;
             }
           })
         }
       },
-      getBrandsFromModels(){
+      getBodyTypesFromModels(){
         this.models.forEach(model => {
-          if(!this.modelBrands.includes(model.brand)){
-            this.modelBrands.push(model.brand)
+          if(!this.kaross.includes(model.body_type)){
+            this.kaross.push(model.body_type)
           }
         });
       },
-      /* getBrands () {
-        api.get('/brands')
-        .then(response => {
-          this.brands = response.data.brands
-          this.filteredBrands = response.data.brands
-          this.getCountries()
-        })
-        .catch(error => {
-          console.log(error)
-        })
-      }, */
+      getFuelTypesFromModels(){
+        this.models.forEach(model => {
+          if(!this.drivmedel.includes(model.fuel_type)){
+            this.drivmedel.push(model.fuel_type)
+          }
+        });
+      },
       getModels () {
-        api.get('/models')
+        api.get('/specs')
         .then(response => {
-          this.models = response.data.models
-          this.getBrandsFromModels()
+          this.models = response.data
+          this.getBodyTypesFromModels()
+          this.getFuelTypesFromModels()
           this.useFilter()
         })
         .catch(error => {
           console.log(error)
         })
-        .finally(() => this.loading = false)
-      },
-      filterModels() {
-        if(this.selectedCountry == 'Alla'){
-          this.filteredBrands = this.brands
-        }else{
-          this.filteredBrands = this.brands.filter(brand => brand.origin == this.selectedCountry);
-        }
       }
     }
   }
