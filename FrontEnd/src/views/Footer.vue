@@ -1,14 +1,10 @@
 <template>
   <v-footer
-      color="red lighten-3"
-      class="font-weight-medium"
+      color="red accent-4"
+      class="font-weight-medium d-flex align-center justify-center py-4"
+      dark
     >
-      <v-col
-        class="text-center"
-        cols="12"
-      >
         {{ new Date().getFullYear() }} — <strong>CarPicker</strong>
-      </v-col>
     </v-footer>
 </template>
 
