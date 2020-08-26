@@ -1,5 +1,6 @@
 <template>
   <v-container>
+      Test
     <!-- <v-row class="text-center d-flex align-center justify-center flex-column" style="height: 400px;">
         <h1 class="display-2 font-weight-bold mb-3">
           Välkommen till CarPicker
