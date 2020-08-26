@@ -74,7 +74,7 @@
       </v-list>
     </v-navigation-drawer>
     <!-- Only visible on tablet (<900 pixels) -->
-    <div v-if="$mq === 'tablet'" class="d-flex flex-column align-stretch mt-4">
+    <div v-if="$mq === 'tablet' || $mq === 'mobile'" class="d-flex flex-column align-stretch mt-4">
         <v-btn class=" flex-sm-grow-0 mb-4" color="red" dark @click.stop="drawer = !drawer">Filtrera</v-btn>
         <v-select
             :items="sorting"
