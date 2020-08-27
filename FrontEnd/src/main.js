@@ -5,6 +5,7 @@ import router from './router'
 import axios from 'axios'
 import store from './store'
 import VueMq from 'vue-mq'
+import VueGtag from "vue-gtag";
 
 Vue.use(VueMq, {
   breakpoints: {
