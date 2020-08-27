@@ -11,11 +11,6 @@
 export default {
   name: "Navbar",
   data: () => ({
-    drawer: false, // Hide mobile side menu by default
-    items: [
-      { text: "Home", icon: "mdi-home", link: "/" },
-    ],
-    inset: false
   })
 };
 </script>

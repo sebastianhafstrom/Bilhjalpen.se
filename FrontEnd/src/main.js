@@ -15,6 +15,10 @@ Vue.use(VueMq, {
   }
 })
 
+Vue.use(VueGtag, {
+  config: { id: "UA-176569582-1" }
+}, router);
+
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
