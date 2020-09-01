@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <h1>Bilhjälpen.se</h1>
-        <v-btn class="red accent-4 white--text mb-8" to="/cars">Alla bilar</v-btn>
+        <v-btn color="primary" class=" white--text mt-8" to="/cars">Alla bilar</v-btn>
     </v-container>
 </template>
 

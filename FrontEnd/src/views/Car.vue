@@ -3,11 +3,11 @@
         <v-row justify="start" align="center">
             <v-col class="col-md-8 offset-md-2 col-sm-10 offset-sm-1" >
                 <v-breadcrumbs :items="items" class="bread"></v-breadcrumbs>
-                <v-btn class="red accent-4 white--text mb-8" to="/cars"><v-icon dark left>mdi-arrow-left</v-icon>Tillbaka</v-btn>
+                <v-btn color="primary" class="white--text mb-8" to="/cars"><v-icon dark left>mdi-arrow-left</v-icon>Tillbaka</v-btn>
                 <v-img :src="'/img/larger/' + model + '.webp'" contain></v-img>
                 <div class="my-4 d-flex flex-row align-center">
                     <h1 >{{brand}} {{ model }}</h1>
-                    <v-btn class="ml-auto red white--text accent-4" :href="specs.link" target="_blank">Till {{brand}}.se<v-icon dark right>mdi-launch</v-icon></v-btn>
+                    <v-btn color="primary" class="ml-auto white--text" :href="specs.link" target="_blank">Till {{brand}}.se<v-icon dark right>mdi-launch</v-icon></v-btn>
                 </div>
                 <v-divider></v-divider>
                 <h2 class="mt-4">Specifikationer</h2>

@@ -28,12 +28,12 @@
             <v-list-item
               :key="`item-${i}`"
               :value="item.body"
-              active-class="deep-purple--text text--accent-4"
+              active-class="secondary"
               dense
             >
               <template v-slot:default="{ active }">
                 <v-list-item-action>
-                  <v-checkbox :input-value="active" color="deep-purple accent-4"></v-checkbox>
+                  <v-checkbox :input-value="active" color="primary"></v-checkbox>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -54,12 +54,12 @@
             <v-list-item
               :key="`item-${i}`"
               :value="item.fuel"
-              active-class="deep-purple--text text--accent-4"
+              active-class="secondary"
               dense
             >
               <template v-slot:default="{ active }">
                 <v-list-item-action>
-                  <v-checkbox :input-value="active" color="deep-purple accent-4"></v-checkbox>
+                  <v-checkbox :input-value="active" color="primary"></v-checkbox>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -75,7 +75,7 @@
     </v-navigation-drawer>
     <!-- Only visible on tablet (<900 pixels) -->
     <div v-if="$mq === 'tablet' || $mq === 'mobile'" class="d-flex flex-column align-stretch mt-4">
-        <v-btn class=" flex-sm-grow-0 mb-4" color="red" dark @click.stop="drawer = !drawer">Filtrera</v-btn>
+        <v-btn class=" flex-sm-grow-0 mb-4" color="primary" dark @click.stop="drawer = !drawer">Filtrera</v-btn>
         <v-select
             :items="sorting"
             label="Sortera efter"
@@ -115,7 +115,7 @@
           multiple
           @change="useFilter()"
         ></v-select>
-        <v-btn ref="button" color="red white--text" class="my-auto" @click="clearSelection()">Rensa</v-btn>
+        <v-btn ref="button" color="primary white--text" class="my-auto" @click="clearSelection()">Rensa</v-btn>
       </div>
       <div class="d-flex align-center flex-wrap">
       <v-select
