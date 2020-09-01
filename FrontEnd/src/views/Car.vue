@@ -3,7 +3,7 @@
         <v-row justify="start" align="center">
             <v-col class="col-md-8 offset-md-2 col-sm-10 offset-sm-1" >
                 <v-breadcrumbs :items="items" class="bread"></v-breadcrumbs>
-                <v-btn class="red accent-4 white--text mb-8" to="/"><v-icon dark left>mdi-arrow-left</v-icon>Tillbaka</v-btn>
+                <v-btn class="red accent-4 white--text mb-8" to="/cars"><v-icon dark left>mdi-arrow-left</v-icon>Tillbaka</v-btn>
                 <v-img :src="'/img/larger/' + model + '.webp'" contain></v-img>
                 <div class="my-4 d-flex flex-row align-center">
                     <h1 >{{brand}} {{ model }}</h1>
@@ -46,6 +46,11 @@ export default {
             text: 'Hem',
             disabled: false,
             to: '/',
+            },
+            {
+                text: 'Alla bilar',
+                disabled: false,
+                to: '/cars'
             },
             {
             text: 'Link 1',
@@ -132,7 +137,7 @@ export default {
                 })
         },
         setBreadCrumbs() {
-            this.items[1].text = this.model
+            this.items[2].text = this.model
         },
         setSpecItems() {
             this.specsItems[0].value = this.specs.brand
