@@ -1,7 +1,7 @@
 <template>
   <nav>
     <v-app-bar color="primary" dark height="80">
-      <router-link to="/"><img class="mr-3" :src="require('../assets/logo.png')" height="40" to="/" /></router-link>
+      <router-link to="/"><v-img class="mr-3" :src="require('../assets/logo.png')" to="/" max-width="300" position="left" /></router-link>
       <!--<v-toolbar-title class="headline">Bilhjälpen</v-toolbar-title> -->
       <v-spacer></v-spacer>
       <v-toolbar-items v-if="$mq === 'laptop' || $mq === 'desktop'">
