@@ -141,7 +141,7 @@
         sm="6"
         xs="12"
       >
-        <v-card class="mx-auto" :to="'/car/' + model.model">
+        <v-card class="mx-auto" :to="'/bil/' + model.model">
           <v-img :src="'/img/cars/' + model.model + '.webp'" contain></v-img>
           <v-row align="center" justify="center">
             <v-col cols="6" sm="8" class="py-0">

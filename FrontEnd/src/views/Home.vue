@@ -9,14 +9,14 @@
       <v-col class="text-center" cols="12">
         <h1 class="display-3 font-weight-thin mb-4">Bilhjälpen.se</h1>
         <p class="subheading">Låt oss hjälpa dig hitta din nya bil</p>
-        <v-btn color="primary" class=" white--text mt-8" to="/cars" tile>Visa alla bilar</v-btn>
+        <v-btn color="primary" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
       </v-col>
     </v-row>
     <v-parallax height="100" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
     </v-parallax>
 
     <v-container>
-      <h2 class="text-center headline my-6">Bilkategorier</h2>    
+      <h2 class="text-center headline my-6">De populäraste kategorierna</h2>    
     <v-row class="fill-height" align="center" justify="center">
       <template v-for="(item, i) in items">
         <v-col

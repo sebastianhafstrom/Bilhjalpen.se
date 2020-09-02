@@ -3,7 +3,7 @@
         <v-row justify="start" align="center">
             <v-col class="col-md-8 offset-md-2 col-sm-10 offset-sm-1" >
                 <v-breadcrumbs :items="items" class="bread"></v-breadcrumbs>
-                <v-btn color="primary" class="white--text mb-8" to="/cars"><v-icon dark left>mdi-arrow-left</v-icon>Tillbaka</v-btn>
+                <v-btn color="primary" class="white--text mb-8" to="/bilar"><v-icon dark left>mdi-arrow-left</v-icon>Tillbaka</v-btn>
                 <v-img :src="'/img/larger/' + model + '.webp'" contain></v-img>
                 <div class="my-4 d-flex flex-row align-center">
                     <h1 >{{brand}} {{ model }}</h1>
@@ -50,7 +50,7 @@ export default {
             {
                 text: 'Alla bilar',
                 disabled: false,
-                to: '/cars'
+                to: '/bilar'
             },
             {
             text: 'Link 1',

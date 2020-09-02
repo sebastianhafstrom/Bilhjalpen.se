@@ -3,13 +3,14 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Cars from '../views/Cars.vue'
 import Car from '../views/Car.vue'
+import About from '../views/About.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'Hem',
     component: Home,
     meta: {
       title: 'Hem - Bilhjälpen',
@@ -26,8 +27,8 @@ const routes = [
     }
   },
   {
-    path: '/cars',
-    name: 'Cars',
+    path: '/bilar',
+    name: 'Bilar',
     component: Cars,
     meta: {
       title: 'Alla bilar - Bilhjälpen',
@@ -44,11 +45,29 @@ const routes = [
     }
   },
   {
-    path: '/car/:model',
+    path: '/bil/:model',
     name: Car,
     component: Car,
     meta: {
       title: 'Bil - Bilhjälpen'
+    }
+  },
+  {
+    path: '/om',
+    name: 'Om',
+    component: About,
+    meta: {
+      title: 'Om oss - Bilhjälpen',
+      metaTags: [
+        {
+          name: 'description',
+          content: 'Om Bilhjälpen'
+        },
+        {
+          property: 'og:description',
+          content: 'Om Bilhjälpen'
+        }
+      ]
     }
   }
 ]

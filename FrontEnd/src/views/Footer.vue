@@ -1,10 +1,20 @@
 <template>
   <v-footer
       color="primary"
-      class="font-weight-medium d-flex align-center justify-center py-4"
+      class="font-weight-medium d-flex flex-column align-center justify-center py-4"
       dark
     >
-        {{ new Date().getFullYear() }} — <strong>Bilhjälpen</strong>
+        <router-link to="/"><v-img class="mr-3" :src="require('../assets/logo.png')" to="/" max-width="300" position="left" /></router-link>
+        <div class="flex-row">
+          <v-btn class="mt-4" dark text to="/bilar">Alla Bilar</v-btn>
+          <v-btn class="mt-4" dark text to="/om">Om Bilhjälpen.se</v-btn>
+        </div>
+        <div class="flex-row">
+          <a href="#"><v-icon>mdi-facebook</v-icon></a>
+          <a href="#"><v-icon>mdi-linkedin</v-icon></a>
+          <a href="#"><v-icon>mdi-twitter</v-icon></a>
+          <a href="#"><v-icon>mdi-email</v-icon></a>
+        </div>
     </v-footer>
 </template>
 
