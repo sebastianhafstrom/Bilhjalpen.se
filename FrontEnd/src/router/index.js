@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Cars from '../views/Cars.vue'
 import Car from '../views/Car.vue'
 import About from '../views/About.vue'
+import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter)
 
@@ -69,6 +70,14 @@ const routes = [
         }
       ]
     }
+  },
+  {
+    path: '/404',
+    name: 'Not found',
+    component: NotFound,
+    meta: {
+      title: 'Bilhjälpen - Sidan kan inte hittas'
+    }
   }
 ]
 
@@ -85,6 +94,14 @@ const router = new VueRouter({
   scrollBehavior,
   mode: 'history'
 })
+
+router.beforeEach((to, from, next) => {
+  if (!to.matched.length) {
+    next('/404');
+  } else {
+    next();
+  }
+});
 
 // This callback runs before every route change, including on page load.
 router.beforeEach((to, from, next) => {
