@@ -4,10 +4,10 @@
       <router-link to="/"><img class="mr-3" :src="require('../assets/logo.png')" height="40" to="/" /></router-link>
       <!--<v-toolbar-title class="headline">Bilhjälpen</v-toolbar-title> -->
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <v-toolbar-items v-if="$mq === 'laptop' || $mq === 'desktop'">
         <v-btn text to="/cars" exact>Alla bilar</v-btn>
       </v-toolbar-items>
-      <v-app-bar-nav-icon class="hidden-sm-and-up" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon v-if="$mq === 'tablet' || $mq === 'mobile'" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
 
     <!-- Start of mobile side menu -->
