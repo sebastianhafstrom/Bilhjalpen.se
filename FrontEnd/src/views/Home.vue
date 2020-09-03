@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <v-row
       style="height: 50vw; min-height: 300px; max-height:600px;"
       align="center"
@@ -18,39 +17,10 @@
     <v-container>
       <h2 class="text-center headline my-6">De populäraste kategorierna</h2>    
     <v-row class="fill-height" align="center" justify="center">
-      <template v-for="(item, i) in items">
-        <v-col
-          :key="i"
-          cols="12"
-          sm="6"
-          md="4"
-        >
-          <v-hover v-slot:default="{ hover }">
-            <router-link :to="item.link">
-            <v-card
-              :elevation="hover ? 12 : 2"
-              :class="{ 'on-hover': hover }"
-              :color="item.color"
-            >
-                <v-card-title class="title white--text align-self-center">
-                  <v-row
-                    class="fill-height flex-column"
-                    justify="space-between"
-                  >
-                    <p class="mt-4 subheading text-center">{{ item.title }}</p>
-
-                    <div>
-                      <p class="ma-0 body-1 text-center">
-                        {{ item.text }}
-                      </p>
-                    </div>
-                  </v-row>
-                </v-card-title>
-            </v-card>
-            </router-link>
-          </v-hover>
-        </v-col>
-      </template>
+      <CategoryButton
+        v-for="(item, index) in items"
+        v-bind:item="item"
+        v-bind:key="index" />
     </v-row>
     </v-container>
   </div>
@@ -58,9 +28,13 @@
 
 <script>
 //import { api } from "@/Api.js";
+import CategoryButton from './CategoryButton.vue'
 
 export default {
   name: "Home",
+  components: {
+    CategoryButton
+  },
 
   data: () => ({
     icons: ['mdi-rewind', 'mdi-play', 'mdi-fast-forward'],
@@ -69,7 +43,7 @@ export default {
           title: 'För den miljövänliga',
           text: "Miljövänliga hybridbilar, elbilar och gasbilar",
           color: 'green',
-          link: '/'
+          link: '/om'
         },
         {
           title: 'För den riktigt miljövänliga',
@@ -101,8 +75,7 @@ export default {
           color: 'indigo',
           link: '/'
         },
-      ],
-      transparent: 'rgba(255, 255, 255, 0)',
+      ]
   }),
   created() {
 
@@ -113,13 +86,5 @@ export default {
 };
 </script>
 <style scoped>
-.v-card {
-  transition: opacity .4s ease-in-out;
-}
 
-.v-card:not(.on-hover) {
-  opacity: 0.8;
- }
-
- a {  text-decoration: none;}
 </style>
