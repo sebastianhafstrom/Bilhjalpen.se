@@ -28,7 +28,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .v-card {
   transition: opacity .4s ease-in-out;
 }
