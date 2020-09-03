@@ -1,7 +1,7 @@
 <template>
     <v-container>
     <v-row
-        style="height: 50vw; min-height: 300px; max-height:800px;"
+        
         align="left"
         justify="left"
         >
