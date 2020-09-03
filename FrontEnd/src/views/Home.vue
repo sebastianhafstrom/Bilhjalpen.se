@@ -16,12 +16,12 @@
 
     <v-container>
       <h2 class="text-center headline my-6">De populäraste kategorierna</h2>    
-    <v-row class="fill-height" align="center" justify="center">
-      <CategoryButton
-        v-for="(item, index) in items"
-        v-bind:item="item"
-        v-bind:key="index" />
-    </v-row>
+      <v-row class="fill-height" align="center" justify="center">
+        <CategoryButton
+          v-for="(item, index) in items"
+          v-bind:item="item"
+          v-bind:key="index" />
+      </v-row>
     </v-container>
   </div>
 </template>
@@ -37,7 +37,6 @@ export default {
   },
 
   data: () => ({
-    icons: ['mdi-rewind', 'mdi-play', 'mdi-fast-forward'],
       items: [
         {
           title: 'För den miljövänliga',

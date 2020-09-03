@@ -1,24 +1,5 @@
 <template>
   <v-container>
-    <!-- <v-row class="text-center d-flex align-center justify-center flex-column" style="height: 400px;">
-        <h1 class="display-2 font-weight-bold mb-3">
-          Välkommen till CarPicker
-        </h1>
-
-        <p class="subheading font-weight-regular mx-8">
-          Vi ger dig oberoende jämförelse mellan världens alla bilar.
-        </p>
-        <v-btn
-          ref="button"
-          
-          color="primary"
-          @click="$vuetify.goTo('#bilar')"
-        >
-          Till bilarna
-        </v-btn>
-    </v-row>
-    <v-divider class="mx-xl-8"></v-divider>-->
-
     <!-- Navigation drawer for the mobile filtering-->
     <v-navigation-drawer v-model="drawer" fixed temporary right>
       <v-subheader>Välj Kaross</v-subheader>
@@ -118,52 +99,36 @@
         <v-btn ref="button" color="primary white--text" class="my-auto" @click="clearSelection()">Rensa</v-btn>
       </div>
       <div class="d-flex align-center flex-wrap">
-      <v-select
-        :items="sorting"
-        label="Sortera efter"
-        v-model="selectedSorting"
-        class="mr-4 flex-sm-grow-0 ml-auto"
-        color="red"
-        style="width: 150px; max-width: 400px;"
-        @change="sortCars()"
-      ></v-select>
-    </div>
-      <!-- <p >Antal bilar som matchar: {{filteredModels.length}} av {{models.length}}</p> -->
+        <v-select
+          :items="sorting"
+          label="Sortera efter"
+          v-model="selectedSorting"
+          class="mr-4 flex-sm-grow-0 ml-auto"
+          color="red"
+          style="width: 150px; max-width: 400px;"
+          @change="sortCars()"
+        ></v-select>
+      </div>
     </div>
     
     <v-row style class>
-      <v-col
-        v-for="model in filteredModels"
-        v-model="filteredModels"
-        :key="model._id"
-        xl="3"
-        md="4"
-        sm="6"
-        xs="12"
-      >
-        <v-card class="mx-auto" :to="'/bil/' + model.model">
-          <v-img :src="'/img/cars/' + model.model + '.webp'" contain></v-img>
-          <v-row align="center" justify="center">
-            <v-col cols="6" sm="8" class="py-0">
-              <v-card-title>{{ model.model }}</v-card-title>
-              <v-card-subtitle>{{model.body_type}} | {{model.fuel_type}}</v-card-subtitle>
-            </v-col>
-            <v-col cols="6" sm="4">
-              <v-img :src="'/img/logos/' + model.brand + '.png'"></v-img>
-            </v-col>
-          </v-row>
-        </v-card>
-      </v-col>
+      <CarCard
+          v-for="(model, index) in filteredModels"
+          v-bind:model="model"
+          v-bind:key="index" />
     </v-row>
   </v-container>
 </template>
 
 <script>
 import { api } from "@/Api.js";
+import CarCard from "./CarCard.vue"
 
 export default {
   name: "Cars",
-
+  components: {
+    CarCard
+  },
   data: () => ({
     models: [], // All the models from the
     filteredModels: [], // Models displayed depending on the choosen filter
