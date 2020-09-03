@@ -1,5 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://carPickerAdmin:TtkD%23WIfQO4Qn6@cluster0-8vwav.azure.mongodb.net/test?retryWrites=true&w=majority";
+require('dotenv').config();
+const uri = "mongodb+srv://" + process.env.DB_USERNAME + ":" + process.env.DB_PASSWORD + "@cluster0-8vwav.azure.mongodb.net/test?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -8,7 +9,6 @@ var models
 var specs
 
 client.connect(err => {
-
     if (err) return console.log(err)
     console.log('Connected to Database')
 
