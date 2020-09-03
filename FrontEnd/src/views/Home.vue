@@ -2,7 +2,7 @@
   <div>
 
     <v-row
-      style="height: 50vw; min-height: 300px; max-height:800px;"
+      style="height: 50vw; min-height: 300px; max-height:600px;"
       align="center"
       justify="center"
     >
