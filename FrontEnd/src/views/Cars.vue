@@ -1,59 +1,16 @@
 <template>
   <v-container>
     <!-- Navigation drawer for the mobile filtering-->
-    <v-navigation-drawer v-model="drawer" fixed temporary right>
-      <v-subheader>Välj Kaross</v-subheader>
-      <v-list shaped rounded>
-        <v-list-item-group v-model="selectedKaross" multiple @change="useFilter()">
-          <template v-for="(item, i) in kaross">
-            <v-list-item
-              :key="`item-${i}`"
-              :value="item.body"
-              active-class="secondary"
-              dense
-            >
-              <template v-slot:default="{ active }">
-                <v-list-item-action>
-                  <v-checkbox :input-value="active" color="primary"></v-checkbox>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    {{item.body}}
-                    <span style="float: right;">({{item.number}})</span>
-                  </v-list-item-title>
-                </v-list-item-content>
-              </template>
-            </v-list-item>
-          </template>
-        </v-list-item-group>
-      </v-list>
-      <v-divider></v-divider>
-      <v-subheader>Välj drivmedel</v-subheader>
-      <v-list shaped rounded>
-        <v-list-item-group v-model="selectedDrivmedel" multiple @change="useFilter()">
-          <template v-for="(item, i) in drivmedel">
-            <v-list-item
-              :key="`item-${i}`"
-              :value="item.fuel"
-              active-class="secondary"
-              dense
-            >
-              <template v-slot:default="{ active }">
-                <v-list-item-action>
-                  <v-checkbox :input-value="active" color="primary"></v-checkbox>
-                </v-list-item-action>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    {{item.fuel}}
-                    <span style="float: right;">({{item.number}})</span>
-                  </v-list-item-title>
-                </v-list-item-content>
-              </template>
-            </v-list-item>
-          </template>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
+    <MobileNavDrawer
+      v-bind:drawer="drawer"
+      v-bind:kaross="kaross"
+      v-bind:drivmedel="drivmedel"
+      v-bind:selectedKaross="selectedKaross"
+      v-bind:selectedDrivmedel="selectedDrivmedel" 
+      v-on:changedKaross="updatedSelectedKaross($event)"
+      v-on:changedDrivmedel="updatedSelectedDrivmedel($event)"
+      v-on:changedDrawer="drawer = $event"/>
+    
     <!-- Only visible on tablet (<900 pixels) -->
     <div v-if="$mq === 'tablet' || $mq === 'mobile'" class="d-flex flex-column align-stretch mt-4">
         <v-btn class=" flex-sm-grow-0 mb-4" color="primary" dark @click.stop="drawer = !drawer">Filtrera</v-btn>
@@ -123,11 +80,13 @@
 <script>
 import { api } from "@/Api.js";
 import CarCard from "./CarCard.vue"
+import MobileNavDrawer from "./MobileNavDrawer.vue"
 
 export default {
   name: "Cars",
   components: {
-    CarCard
+    CarCard,
+    MobileNavDrawer
   },
   data: () => ({
     models: [], // All the models from the
@@ -145,6 +104,14 @@ export default {
     this.getModels();
   },
   methods: {
+    updatedSelectedKaross(value) {
+      this.selectedKaross = value
+      this.useFilter()
+    },
+    updatedSelectedDrivmedel(value) {
+      this.selectedDrivmedel = value
+      this.useFilter()
+    },
     disKaross(item) {
       if (this.selectedKaross.length == 0) return item.number == 0;
     },
