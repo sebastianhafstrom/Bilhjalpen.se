@@ -1,18 +1,18 @@
 <template>
   <div>
+    <v-img :src="require('../assets/carpark.jpg')" style="height: 50vw; min-height: 300px; max-height:600px;">
     <v-row
       style="height: 50vw; min-height: 300px; max-height:600px;"
       align="center"
       justify="center"
     >
-      <v-col class="text-center" cols="12">
-        <h1 class="display-3 font-weight-thin mb-4">Bilhjälpen.se</h1>
-        <p class="subheading">Låt oss hjälpa dig hitta din nya bil</p>
-        <v-btn color="primary" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
-      </v-col>
+        <div class="py-4 px-8 d-flex text-center flex-column align-center" style="background-color: rgba(50, 50, 50, 0.8); width: 80%; justify: center;">
+          <h1 class="display-1 font-weight-thin mb-4 white--text">Vi hjälper dig hitta den perfekta bilen, oavsett livsstil, behov och önskemål.</h1>
+          <p class="subheading white--text">Låt oss hjälpa dig hitta din nya bil</p>
+          <v-btn color="primary" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
+        </div>
     </v-row>
-    <v-parallax height="100" src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg">
-    </v-parallax>
+    </v-img>
 
     <v-container>
       <h2 class="text-center headline my-6">De populäraste kategorierna</h2>    
