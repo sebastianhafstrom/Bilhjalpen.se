@@ -2,7 +2,6 @@
   <nav>
     <v-app-bar color="primary" dark height="60">
         <router-link to="/"><v-img class="my-8" :src="require('../assets/logo.png')" to="/" max-height="50" max-width="250" position="left" /></router-link>
-        <!--<v-toolbar-title class="headline">Bilhjälpen</v-toolbar-title> -->
         <v-spacer></v-spacer>
         <v-toolbar-items v-if="$mq === 'laptop' || $mq === 'desktop'">
           <v-btn text to="/">Hem</v-btn>
@@ -46,10 +45,6 @@
       <!-- Menu Links -->
       <v-list>
         <v-list-item v-for="item in items" :key="item.title" :to="item.link">
-          <!-- <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>-->
-
           <v-list-item-content>
             <v-list-item-title>{{ item.text }}</v-list-item-title>
           </v-list-item-content>
@@ -72,16 +67,11 @@ export default {
     ],
     dropdownItems: [
         { title: 'Miljöbilar',
-          link: '/' 
+          link: '/kategori/miljo' 
         },
         { title: 'Elbilar',
-          link: '/'  
-        },
-        { title: 'Stora bilar',
-          link: '/'  
-        },
-        { title: 'Små bilar',
-          link: '/'  },
+          link: '/kategori/el'  
+        }
       ],
   }),
 };

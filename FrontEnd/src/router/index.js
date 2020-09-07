@@ -5,6 +5,10 @@ import Cars from '../views/Cars.vue'
 import Car from '../views/Car.vue'
 import About from '../views/About.vue'
 import NotFound from '../views/NotFound.vue'
+import Elbilar from '../views/Elbilar.vue'
+import Miljobilar from '../views/Miljobilar.vue'
+import Brand from '../views/Brand.vue'
+import Brands from '../views/Brands.vue'
 
 Vue.use(VueRouter)
 
@@ -14,17 +18,7 @@ const routes = [
     name: 'Hem',
     component: Home,
     meta: {
-      title: 'Hem - Bilhjälpen',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Startsidan för Bilhjälpen.'
-        },
-        {
-          property: 'og:description',
-          content: 'Startsidan för Bilhjälpen.'
-        }
-      ]
+      title: 'Hem - Bilhjälpen'
     }
   },
   {
@@ -32,25 +26,49 @@ const routes = [
     name: 'Bilar',
     component: Cars,
     meta: {
-      title: 'Alla bilar - Bilhjälpen',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Alla bilar som finns tillgängliga på Bilhjälpen'
-        },
-        {
-          property: 'og:description',
-          content: 'Alla bilar som finns tillgängliga på Bilhjälpen'
-        }
-      ]
+      title: 'Alla bilar - Bilhjälpen'
     }
   },
   {
     path: '/bil/:model',
-    name: Car,
+    name: 'Car',
     component: Car,
     meta: {
       title: 'Bil - Bilhjälpen'
+    }
+  },
+  {
+    path: '/marken',
+    name: 'Alla märken',
+    component: Brands,
+    meta: {
+      title: 'Bilhjälpen - Alla märken'
+    }
+
+  },
+  {
+    path: '/marke/:brand',
+    name: "Specifikt märke",
+    component: Brand,
+    meta: {
+      title: 'Bilhjälpen - Märke'
+    }
+
+  },
+  {
+    path: '/kategori/el',
+    name: 'Kategori El',
+    component: Elbilar,
+    meta: {
+      title: 'Bilhjälpen - Elbilar'
+    }
+  },
+  {
+    path: '/kategori/miljo',
+    name: 'Kategori Miljö',
+    component: Miljobilar,
+    meta: {
+      title: 'Bilhjälpen - Miljöbilar'
     }
   },
   {
@@ -58,17 +76,7 @@ const routes = [
     name: 'Om',
     component: About,
     meta: {
-      title: 'Om oss - Bilhjälpen',
-      metaTags: [
-        {
-          name: 'description',
-          content: 'Om Bilhjälpen'
-        },
-        {
-          property: 'og:description',
-          content: 'Om Bilhjälpen'
-        }
-      ]
+      title: 'Om oss - Bilhjälpen'
     }
   },
   {

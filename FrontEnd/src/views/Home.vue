@@ -41,38 +41,14 @@ export default {
           title: 'För den miljövänliga',
           text: "Miljövänliga hybridbilar, elbilar och gasbilar",
           color: 'green',
-          link: '/om'
+          link: '/kategori/miljo'
         },
         {
           title: 'För den riktigt miljövänliga',
           text: 'Endast de renaste elbilarna',
           color: 'red',
-          link: '/'
-        },
-        {
-          title: 'För den som gillar att ta plats och synas',
-          text: 'Stora SUVar',
-          color: 'pink',
-          link: '/'
-        },
-        {
-          title: 'För den stora familjen',
-          text: 'Bilar med extra plats för det viktigaste i livet',
-          color: 'purple',
-          link: '/'
-        },
-        {
-          title: 'För den fartglade',
-          text: 'När utrymme och bensinåtgång inte är prio',
-          color: 'deep-purple',
-          link: '/'
-        },
-        {
-          title: 'För den lilla familjen',
-          text: 'Liten och smidig, men plats för allt',
-          color: 'indigo',
-          link: '/'
-        },
+          link: '/kategori/el'
+        }
       ]
   }),
   created() {
