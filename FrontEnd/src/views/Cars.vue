@@ -19,8 +19,8 @@
             label="Sortera efter"
             v-model="selectedSorting"
             class="flex-sm-grow-0"
-            color="red"
-            @change="sortCars()"
+            color="primary"
+            @change="setSort()"
         ></v-select>
     </div>
     <!-- Only visible on widths larger than 900 pixels -->
@@ -34,10 +34,10 @@
           label="Kaross"
           v-model="selectedKaross"
           class="mr-4 flex-sm-grow-1"
-          color="red"
+          color="primary"
           style="width: 250px; max-width: 400px;"
           multiple
-          @change="useFilter()"
+          @change="setFilter()"
         >
         </v-select>
         <v-select
@@ -48,10 +48,10 @@
           :item-disabled="disDrivmedel"
           v-model="selectedDrivmedel"
           class="mr-4 flex-sm-grow-1"
-          color="red"
+          color="primary"
           style="width: 250px; max-width: 400px;"
           multiple
-          @change="useFilter()"
+          @change="setFilter()"
         ></v-select>
         <v-btn ref="button" color="primary white--text" class="my-auto" @click="clearSelection()">Rensa</v-btn>
       </div>
@@ -61,19 +61,27 @@
           label="Sortera efter"
           v-model="selectedSorting"
           class="mr-4 flex-sm-grow-0 ml-auto"
-          color="red"
+          color="primary"
           style="width: 150px; max-width: 400px;"
-          @change="sortCars()"
+          @change="setSort()"
         ></v-select>
       </div>
     </div>
     
-    <v-row style class>
+    <v-row v-if="loading === false">
       <CarCard
           v-for="(model, index) in filteredModels"
           v-bind:model="model"
           v-bind:key="index" />
     </v-row>
+    <div class="text-center" v-else>
+      <p>Laddar bilar...</p>
+      <v-progress-circular
+        indeterminate
+        color="primary"
+      ></v-progress-circular>
+      
+    </div>
   </v-container>
 </template>
 
@@ -95,22 +103,31 @@ export default {
     kaross: [],
     selectedDrivmedel: [],
     selectedKaross: [],
-    sorting: ["Name A-Ö", "Namn Ö-A", "Kaross", "Drivmedel"],
-    selectedSorting: "Name A-Ö",
-    drawer: null,
+    sorting: ["Namn A-Ö", "Namn Ö-A", "Kaross", "Drivmedel"],
+    selectedSorting: '',
+    drawer: false,
+    loading: true,
   }),
   created() {
-    this.getStoreStuff();
-    this.getModels();
+    if(this.$store.getters.getCars.length == 0){
+      this.getModels()
+    }else{
+      this.loading = false
+      this.models = this.$store.getters.getCars
+      this.getBodyTypesFromModels()
+      this.getFuelTypesFromModels()
+      this.getStoreStuff()
+    }
+    
   },
   methods: {
     updatedSelectedKaross(value) {
       this.selectedKaross = value
-      this.useFilter()
+      this.setFilter()
     },
     updatedSelectedDrivmedel(value) {
       this.selectedDrivmedel = value
-      this.useFilter()
+      this.setFilter()
     },
     disKaross(item) {
       if (this.selectedKaross.length == 0) return item.number == 0;
@@ -118,11 +135,15 @@ export default {
     disDrivmedel(item) {
       if (this.selectedDrivmedel.length == 0) return item.number == 0;
     },
+    setSort() {
+      this.$store.commit("setSort", this.selectedSorting);
+      this.sortCars()
+    },
     sortCars() {
-    this.$store.commit("setSort", this.selectedSorting);
       switch (this.selectedSorting) {
-        case "Name A-Ö":
+        case "Namn A-Ö":
           this.filteredModels.sort(function (a, b) {
+            
             var nameA = a.model.toUpperCase(); // ignore upper and lowercase
             var nameB = b.model.toUpperCase(); // ignore upper and lowercase
             if (nameA < nameB) return -1;
@@ -165,12 +186,16 @@ export default {
       this.selectedDrivmedel = this.$store.getters.getFilteredFuels
       this.selectedKaross = this.$store.getters.getFilteredBodies
       this.selectedSorting = this.$store.getters.getSort
+      this.useFilter()
+      this.sortCars()
       return;
     },
-    useFilter() {
+    setFilter(){
       this.$store.commit("setBody", this.selectedKaross);
       this.$store.commit("setFuel", this.selectedDrivmedel);
-
+      this.useFilter()
+    },
+    useFilter() {
       if (
         this.selectedDrivmedel.length == 0 &&
         this.selectedKaross.length == 0
@@ -209,32 +234,6 @@ export default {
         });
         this.countFuelTypes();
         this.countBodyTypes();
-        /* let fuelCheck = false
-            let bodyCheck = false
-            if(!this.selectedDrivmedel.length == 0){
-              this.selectedDrivmedel.forEach(element => {
-                if(model.fuel_type === element){
-                  fuelCheck = true;
-                  return;
-                }
-              });
-            }else{
-              fuelCheck = true
-            }
-            if(!this.selectedKaross.length == 0){
-              this.selectedKaross.forEach(element => {
-                if(model.body_type === element){
-                  bodyCheck = true;
-                  return;
-                }
-              });
-            }else{
-              bodyCheck = true
-            }
-            
-            if(fuelCheck && bodyCheck){
-              return model;
-            } */
       }
       this.sortCars();
     },
@@ -273,11 +272,13 @@ export default {
           this.models = response.data;
           this.getBodyTypesFromModels();
           this.getFuelTypesFromModels();
-          this.useFilter();
+          this.$store.commit("setCars", this.models);
+          this.getStoreStuff()
         })
         .catch((error) => {
           console.log(error);
-        });
+        })
+        .finally(() => this.loading = false)
     },
     clearSelection() {
       this.selectedDrivmedel = [];

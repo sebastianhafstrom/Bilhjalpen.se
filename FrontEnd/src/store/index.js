@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     body: [],
     fuel: [],
-    sorting: ''
+    cars: [],
+    sorting: 'Namn A-Ö'
   },
   mutations: {
     setBody(state, selection) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     setSort(state, selection) {
       state.sorting = selection
+    },
+    setCars(state, selection) {
+      state.cars = selection
     }
   },
   getters: {
@@ -29,6 +33,9 @@ export default new Vuex.Store({
     },
     getSort: state => {
       return state.sorting
+    },
+    getCars: state => {
+      return state.cars
     }
   },
   actions: {
