@@ -34,7 +34,7 @@
     </v-app-bar>
 
     <!-- Start of mobile side menu -->
-    <v-navigation-drawer app v-model="drawer" right disable-resize-watcher>
+    <v-navigation-drawer app v-model="drawer" right>
       <!-- Menu title -->
       <v-list-item>
         <v-list-item-content>
@@ -67,7 +67,8 @@ export default {
     drawer: false, // Hide mobile side menu by default
     items: [
       { text: "Hem", link: "/" },
-      { text: "Alla bilar", link: "/cars" },
+      { text: "Alla bilar", link: "/bilar" },
+      { text: "Om Bilhjälpen.se", link: "/om" }
     ],
     dropdownItems: [
         { title: 'Miljöbilar',
