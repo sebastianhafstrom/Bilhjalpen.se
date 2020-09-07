@@ -6,7 +6,7 @@
       align="center"
       justify="center"
     >
-        <div class="py-4 px-8 d-flex text-center flex-column align-center" style="width: 80%; justify: center;">
+        <div class="py-4 px-8 d-flex text-center flex-column align-center" style="width: 80%;">
           <h1 class="display-1 font-weight-thin mb-4 white--text">Vi hjälper dig hitta den perfekta bilen, oavsett livsstil, behov och önskemål.</h1>
           <p class="subheading white--text">Låt oss hjälpa dig hitta din nya bil</p>
           <v-btn color="primary" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
