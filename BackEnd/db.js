@@ -26,7 +26,7 @@ function getAllBrands() {
 
 // Modelcontroller
 function getAllModels() {
-    let doc = models.find().toArray().catch(error => console.error(error))
+    let doc = models.find().sort({name: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
@@ -44,7 +44,7 @@ function getModel(modelName) {
 
 //Specscontroller
 function getAllModelsWithSpecs(){
-    let doc = specs.find().toArray().catch(error => console.error(error))
+    let doc = specs.find().sort({name: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
@@ -54,11 +54,29 @@ function getModelWithSpecs(modelName) {
     return doc
 }
 
+//CategoryController
+function getAllElectric() {
+    let query = {fuel_type: "El"}
+    let doc = specs.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
+    console.log(doc)
+    return doc
+}
+
+//Get all environmental cars: Electric or < 70g CO2 per km
+function getAllEnvironmental() {
+    let query = {$or:[{fuel_type: "Naturgas"},{co2_emissions_combined: {$lt: 70}}]}
+    let doc = specs.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
+    console.log(doc)
+    return doc
+}
+
 module.exports = {
-    getAllBrands: getAllBrands,
-    getAllModels: getAllModels,
-    getAllModelsGivenBrand: getAllModelsGivenBrand,
-    getModel: getModel,
-    getAllModelsWithSpecs: getAllModelsWithSpecs,
-    getModelWithSpecs: getModelWithSpecs,
+    getAllBrands,
+    getAllModels,
+    getAllModelsGivenBrand,
+    getModel,
+    getAllModelsWithSpecs,
+    getModelWithSpecs,
+    getAllElectric,
+    getAllEnvironmental
 }
