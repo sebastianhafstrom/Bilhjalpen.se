@@ -6,6 +6,9 @@ import axios from 'axios'
 import store from './store'
 import VueMq from 'vue-mq'
 import VueGtag from "vue-gtag";
+import VueMeta from 'vue-meta'
+
+Vue.use(VueMeta) 
 
 Vue.use(VueMq, {
   breakpoints: {
