@@ -24,9 +24,9 @@ function getAllBrands() {
     return doc
 }
 
-// Modelcontroller
-function getAllModels() {
-    let doc = models.find().sort({name: 1}).toArray().catch(error => console.error(error))
+function getBrand(brand) {
+    let query = {name: brand}
+    let doc = brands.findOne(query).catch(error => console.log(error))
     return doc
 }
 
@@ -36,9 +36,16 @@ function getAllModelsGivenBrand(brandName) {
     return doc
 }
 
+// Modelcontroller
+function getAllModels() {
+    let doc = models.find().sort({name: 1}).toArray().catch(error => console.error(error))
+    return doc
+}
+
 function getModel(modelName) {
     let query = {name: modelName}
     let doc = models.findOne(query).catch(error => console.error(error))
+    console.log(doc)
     return doc
 }
 
@@ -78,5 +85,6 @@ module.exports = {
     getAllModelsWithSpecs,
     getModelWithSpecs,
     getAllElectric,
-    getAllEnvironmental
+    getAllEnvironmental,
+    getBrand
 }

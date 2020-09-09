@@ -9,9 +9,17 @@ router.get('/', function(req, res) {
     })
 })
 
-// Get for individual brand
+//Get data on a specific brand
+router.get('/:brand', function(req, res) {
+    console.log(req.params.brand)
+    db.getBrand(req.params.brand).then(results => {
+        res.send(results)
+    })
+})
+
+// Get models for individual brand
 router.get('/:name', function(req, res) {
-    db.getAllModelsGiveBrand(req.params.name).then(results => {
+    db.getAllModelsGivenBrand(req.params.name).then(results => {
         res.json( 
         {
             name: req.params.name, 
