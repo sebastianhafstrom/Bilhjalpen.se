@@ -1,4 +1,5 @@
 var express = require('express')
+require('dotenv').config()
 var brandController = require('./controllers/brandcontroller')
 var modelController = require('./controllers/modelcontroller')
 var specsController = require('./controllers/specscontroller')

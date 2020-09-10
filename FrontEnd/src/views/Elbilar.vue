@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { api } from "@/Api.js";
+import { api } from "../Api.js";
 import CarCard from "./CarCard.vue"
 
 export default {
