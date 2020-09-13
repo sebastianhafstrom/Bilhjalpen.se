@@ -43,9 +43,9 @@ export default {
         specs: {},
         items: [
             {
-            text: 'Hem',
-            disabled: false,
-            to: '/',
+                text: 'Hem',
+                disabled: false,
+                to: '/'
             },
             {
                 text: 'Alla bilar',
@@ -53,9 +53,8 @@ export default {
                 to: '/bilar'
             },
             {
-            text: 'Link 1',
-            disabled: true,
-            href: 'breadcrumbs_link_1',
+                text: 'Link 1',
+                disabled: true
             },
         ],
         specsItems: [
@@ -112,7 +111,7 @@ export default {
     }),
     metaInfo () {
       return {
-        title: this.model,
+        title: this.brand + ' ' + this.model,
         meta: [
           {vmid: 'description', name: 'description', content: 'Hitta allt du behöver veta om ' + this.model + '. Specifikation, omdömen och guider. Vi samlar allt på samma ställe' }
         ],
@@ -124,15 +123,14 @@ export default {
     created() {
         this.model = this.$route.params.model
         this.getModelData()
-        this.setBreadCrumbs()
-        this.getSpecs()
-
     },
     methods: {
         getModelData() {
             api.get(`/models/${this.model}`)
                 .then(response => {
                     this.brand = response.data.brand
+                    this.setBreadCrumbs()
+                    this.getSpecs()
                 })
                 .catch(error => {
                     console.log(error)
@@ -148,7 +146,7 @@ export default {
                 })
         },
         setBreadCrumbs() {
-            this.items[2].text = this.model
+            this.items[2].text = this.brand + ' ' + this.model
         },
         setSpecItems() {
             this.specsItems[0].value = this.specs.brand
