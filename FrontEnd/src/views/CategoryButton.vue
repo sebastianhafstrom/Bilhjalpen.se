@@ -1,5 +1,5 @@
 <template>
-  <v-col cols="12" sm="6" md="4">
+  <v-col cols="12" sm="6">
     <v-hover v-slot:default="{ hover }">
       <router-link :to="item.link">
         <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }" :color="item.color">

@@ -1,7 +1,7 @@
 <template>
   <nav>
     <v-app-bar color="primary" dark height="60">
-        <router-link to="/"><v-img class="my-8" :src="require('../assets/logo.png')" to="/" max-height="50" max-width="250" position="left" /></router-link>
+        <router-link to="/"><v-img alt="Bilhjälpen.se logo" class="my-8" :src="require('../assets/logo.png')" to="/" max-height="50" max-width="250" position="left" /></router-link>
         <v-spacer></v-spacer>
         <v-toolbar-items v-if="$mq === 'laptop' || $mq === 'desktop'">
           <v-btn text to="/">Hem</v-btn>

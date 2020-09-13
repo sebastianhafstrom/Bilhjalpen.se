@@ -31,11 +31,18 @@ import CategoryButton from './CategoryButton.vue'
 
 export default {
   name: "Home",
+  metaInfo: {
+    link: [
+      { rel: 'canonical', href: ''}
+    ]
+  },
+
   components: {
     CategoryButton
   },
 
   data: () => ({
+      url: '',
       items: [
         {
           title: 'För den miljövänliga',

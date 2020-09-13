@@ -110,6 +110,17 @@ export default {
 
         ]
     }),
+    metaInfo () {
+      return {
+        title: this.model,
+        meta: [
+          {vmid: 'description', name: 'description', content: 'Hitta allt du behöver veta om ' + this.model + '. Specifikation, omdömen och guider. Vi samlar allt på samma ställe' }
+        ],
+        link: [
+            { rel: 'canonical', href: 'bil/' + this.model}
+        ]
+      }
+    },
     created() {
         this.model = this.$route.params.model
         this.getModelData()
