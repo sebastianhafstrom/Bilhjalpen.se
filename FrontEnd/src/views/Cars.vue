@@ -92,6 +92,15 @@ import MobileNavDrawer from "./MobileNavDrawer.vue"
 
 export default {
   name: "Cars",
+  metaInfo: {
+      title: 'Hitta din nya bil bland mängder av bilar',
+      meta: [
+          {vmid: 'description', name: 'description', content: 'Här listar vi alla bilar från mängder av olika märken som säljer i Sverige. Filtrera och sortera för att hitta den bilen som passar just dig och dina behov'}
+      ],
+      link: [
+      { rel: 'canonical', href: 'bilar'}
+    ]
+  },
   components: {
     CarCard,
     MobileNavDrawer

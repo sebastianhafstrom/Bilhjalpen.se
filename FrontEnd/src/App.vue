@@ -16,6 +16,22 @@ import Navbar from './views/Navbar'
 
 export default {
   name: "App",
+  metaInfo: {
+    title: 'Vi hjälper dig hitta den perfekta bilen',
+    titleTemplate: 'Bilhjälpen.se - %s',
+    meta: [
+      { charset: 'UTF-8' },
+      { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge'},
+      { name: 'viewport', content: 'width=device-width,initial-scale=1.0'},
+      {vmid: 'description', name: 'description', content: 'Är du på jakt efter en ny bil? På Bilhjälpen kan du göra oberoende jämförelser mellan mängder av märken av modeller för att hitta en som passar just dig'}
+      
+    ],
+    link: [
+      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
+      { rel: 'favicon', href: '/favicon.ico' },
+    ]
+
+  },
   data: () => ({
   }),
   components: {

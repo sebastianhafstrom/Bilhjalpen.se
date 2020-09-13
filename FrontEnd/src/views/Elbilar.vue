@@ -24,6 +24,15 @@ import CarCard from "./CarCard.vue"
 
 export default {
   name: 'Elbilar',
+  metaInfo: {
+      title: 'Elbilar',
+      meta: [
+          {vmid: 'description', name: 'description', content: 'För dig som vill vara riktigt miljövnälig hittar du här elbilar från mängder av olika bilar. Hitta en som passar just dig'}
+      ],
+      link: [
+            { rel: 'canonical', href: 'kategori/el'}
+        ]
+  },
   components: {
     CarCard
   },

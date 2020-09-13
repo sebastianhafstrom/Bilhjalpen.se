@@ -10,6 +10,17 @@ import { api } from "@/Api.js";
 
 export default {
    name: 'Märkessidan',
+   metaInfo () {
+      return {
+        title: this.brandName,
+        meta: [
+          {vmid: 'description', name: 'description', content: 'Här har vi samlat alla nya bilar som säljs av ' + this.brandName + '. Perfekt för dig som vet vilket bilmärke du gillar och vill hitta den perfekta bilen' }
+        ],
+        link: [
+            { rel: 'canonical', href: 'marke/' + this.brandName}
+        ]
+      }
+    },
    data: () => ({
       brandName: '',
       brandYear: '',
