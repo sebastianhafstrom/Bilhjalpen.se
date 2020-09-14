@@ -10,19 +10,27 @@
           <v-btn class="mt-4" dark text to="/om">Om Bilhjälpen.se</v-btn>
         </div>
         <div class="flex-row">
-          <a href="#"><v-icon>mdi-facebook</v-icon></a>
-          <a href="#"><v-icon>mdi-linkedin</v-icon></a>
-          <a href="#"><v-icon>mdi-twitter</v-icon></a>
-          <a href="#"><v-icon>mdi-email</v-icon></a>
+          <a href="#"><v-icon>{{ mdiFacebook }}</v-icon></a>
+          <a href="#"><v-icon>{{ mdiLinkedin }}</v-icon></a>
+          <a href="#"><v-icon>{{ mdiTwitter }}</v-icon></a>
+          <a href="#"><v-icon>{{ mdiEmail }}</v-icon></a>
         </div>
     </v-footer>
 </template>
 
 <script>
+import { mdiFacebook } from '@mdi/js';
+import { mdiLinkedin } from '@mdi/js';
+import { mdiTwitter } from '@mdi/js';
+import { mdiEmail } from '@mdi/js';
+
 export default {
   name: "Footer",
   data: () => ({
-    message: "Hello"
+    mdiFacebook,
+    mdiLinkedin,
+    mdiTwitter,
+    mdiEmail
   })
 };
 </script>
