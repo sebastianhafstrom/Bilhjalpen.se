@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Footer from './views/Footer'
-import Navbar from './views/Navbar'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 
 
@@ -27,7 +27,6 @@ export default {
       
     ],
     link: [
-      { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css' },
       { rel: 'favicon', href: '/favicon.ico' },
     ]
 

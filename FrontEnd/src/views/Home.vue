@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import CategoryButton from './CategoryButton.vue'
+import CategoryButton from '../components/CategoryButton.vue'
 
 export default {
   name: "Home",
