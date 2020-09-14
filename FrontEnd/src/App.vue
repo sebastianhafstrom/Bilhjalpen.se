@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Footer from './views/Footer'
-import Navbar from './views/Navbar'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
 
 
 

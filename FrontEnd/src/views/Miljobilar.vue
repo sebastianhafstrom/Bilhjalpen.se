@@ -21,7 +21,7 @@
 
 <script>
 import { api } from "@/Api.js";
-import CarCard from "./CarCard.vue"
+import CarCard from "../components/CarCard.vue"
 
 export default {
   name: 'Miljöbilar',

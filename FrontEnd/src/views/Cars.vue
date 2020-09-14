@@ -87,8 +87,8 @@
 
 <script>
 import { api } from "@/Api.js";
-import CarCard from "./CarCard.vue"
-import MobileNavDrawer from "./MobileNavDrawer.vue"
+import CarCard from "../components/CarCard.vue"
+import MobileNavDrawer from "../components/MobileNavDrawer.vue"
 
 export default {
   name: "Cars",
