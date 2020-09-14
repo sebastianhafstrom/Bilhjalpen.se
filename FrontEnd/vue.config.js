@@ -13,7 +13,7 @@ module.exports = {
      plugins: [
        new PrerenderSpaPlugin({
         staticDir: path.resolve(__dirname, 'dist'),
-        routes: ['/', '/om'],
+        routes: ['/', '/om', '/kategori/miljo', '/kategori/el'],
          renderer: new PuppeteerRenderer()
        }),
      ]
