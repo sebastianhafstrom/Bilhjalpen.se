@@ -29,10 +29,7 @@ export default {
       title: 'Miljöbilar',
       meta: [
           {vmid: 'description', name: 'description', content: 'Söker du en ny bil som är miljövänlig. Här hittar du miljöbilar från mängder av märken. Elbilar, hybrider, gasbilar och bilar med lågt koldioxidutsläpp'}
-      ],
-      link: [
-            { rel: 'canonical', href: 'kategori/miljo'}
-        ]
+      ]
   },
   components: {
     CarCard

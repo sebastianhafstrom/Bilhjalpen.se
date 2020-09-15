@@ -17,9 +17,6 @@ export default {
         title: 'Om Bilhjälpen.se',
         meta: [
             {vmid: 'description', name: 'description', content: 'Vi på Bilhjälen låter dig i lugn och ro göra egna undersökningar om vilken bil som passar dig. Slipp säljare som tjatar och maffiga annonser.'}
-        ],
-        link: [
-            { rel: 'canonical', href: 'om'}
         ]
     }
 }

@@ -10,10 +10,7 @@ export default {
       title: 'Hitta det bilmärke som passar dig',
       meta: [
           {vmid: 'description', name: 'description', content: 'Här listar vi alla bilmärken som du kan hitta din nya bil bland. Vi har alla bilmärken som säljer i Sverige'}
-      ],
-      link: [
-            { rel: 'canonical', href: 'marken/'}
-        ]
+      ]
   },
 
 }

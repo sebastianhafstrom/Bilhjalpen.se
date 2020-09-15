@@ -23,7 +23,8 @@ export default {
       { charset: 'UTF-8' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge'},
       { name: 'viewport', content: 'width=device-width,initial-scale=1.0'},
-      {vmid: 'description', name: 'description', content: 'Är du på jakt efter en ny bil? På Bilhjälpen kan du göra oberoende jämförelser mellan mängder av märken av modeller för att hitta en som passar just dig'}
+      {vmid: 'description', name: 'description', content: 'Är du på jakt efter en ny bil? På Bilhjälpen kan du göra oberoende jämförelser mellan mängder av märken av modeller för att hitta en som passar just dig'},
+      {name: 'robots', content: 'index,follow'} 
       
     ],
     link: [

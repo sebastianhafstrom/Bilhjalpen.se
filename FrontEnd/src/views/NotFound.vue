@@ -21,9 +21,9 @@ export default {
   name: "NotFound",
   metaInfo: {
     title: 'Vi kan inte hitta det du söker',
-    link: [
-            { rel: 'canonical', href: '404'}
-        ]
+    meta: [
+      { name: 'robots', content: 'noindex'}
+    ]
   },
   data: () => ({
 
