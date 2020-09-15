@@ -32,9 +32,6 @@ import CategoryButton from '../components/CategoryButton.vue'
 export default {
   name: "Home",
   metaInfo: {
-    link: [
-      { rel: 'canonical', href: ''}
-    ]
   },
 
   components: {
