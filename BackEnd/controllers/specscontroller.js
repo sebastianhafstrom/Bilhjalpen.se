@@ -9,6 +9,14 @@ router.get('/', function(req, res) {
     })
 })
 
+// Get specs for all cars from a brand
+router.get('/:brand/models', function(req, res) {
+    db.getModelWithSpecsFromBrand(req.params.brand).then(results => {
+        res.send(results)
+    })
+})
+
+
 // Get specs for a specified model
 router.get('/:model', function(req, res) {
     db.getModelWithSpecs(req.params.model).then(results => {

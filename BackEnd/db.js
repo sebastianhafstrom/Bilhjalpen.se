@@ -26,13 +26,13 @@ function getAllBrands() {
 
 function getBrand(brand) {
     let query = {name: brand}
-    let doc = brands.findOne(query).catch(error => console.log(error))
+    let doc = brands.findOne(query, {projection: { _id: 0}}).catch(error => console.log(error))
     return doc
 }
 
 function getAllModelsGivenBrand(brandName) {
     let query = {brand: brandName}
-    let doc = models.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
+    let doc = models.find(query, {projection: { _id: 0}}).sort({name: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
@@ -44,27 +44,32 @@ function getAllModels() {
 
 function getModel(modelName) {
     let query = {name: modelName}
-    let doc = models.findOne(query).catch(error => console.error(error))
-    console.log(doc)
+    let doc = models.findOne(query, {projection: { _id: 0}}).catch(error => {console.error(error)})
     return doc
 }
 
 //Specscontroller
 function getAllModelsWithSpecs(){
-    let doc = specs.find().sort({name: 1}).toArray().catch(error => console.error(error))
+    let doc = specs.find({}, {projection: { _id: 0}}).sort({name: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
 function getModelWithSpecs(modelName) {
     let query = {model: modelName}
-    let doc = specs.findOne(query).catch(error => console.error(error))
+    let doc = specs.findOne(query, {projection: { _id: 0}}).catch(error => console.error(error))
+    return doc
+}
+
+function getModelWithSpecsFromBrand(brandName) {
+    let query = {brand: brandName}
+    let doc = specs.find(query, {projection: { _id: 0}}).sort({name: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
 //CategoryController
 function getAllElectric() {
     let query = {fuel_type: "El"}
-    let doc = specs.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
+    let doc = specs.find(query, {projection: { _id: 0}}).sort({name: 1}).toArray().catch(error => console.error(error))
     console.log(doc)
     return doc
 }
@@ -72,7 +77,7 @@ function getAllElectric() {
 //Get all environmental cars: Electric or < 70g CO2 per km
 function getAllEnvironmental() {
     let query = {$or:[{fuel_type: "Naturgas"},{co2_emissions_combined: {$lt: 70}}]}
-    let doc = specs.find(query).sort({name: 1}).toArray().catch(error => console.error(error))
+    let doc = specs.find(query, {projection: { _id: 0}}).sort({name: 1}).toArray().catch(error => console.error(error))
     console.log(doc)
     return doc
 }
@@ -86,5 +91,6 @@ module.exports = {
     getModelWithSpecs,
     getAllElectric,
     getAllEnvironmental,
-    getBrand
+    getBrand,
+    getModelWithSpecsFromBrand
 }
