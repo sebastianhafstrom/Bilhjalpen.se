@@ -80,7 +80,6 @@
         indeterminate
         color="primary"
       ></v-progress-circular>
-      
     </div>
   </v-container>
 </template>
