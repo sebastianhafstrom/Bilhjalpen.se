@@ -1,2 +1,2 @@
-[context.staging] # 'staging' is a branch name
+[context.staging.environment] # 'staging' is a branch name
   VUE_APP_BACKEND_URL = "https://bilhjalpen-backend-staging.herokuapp.com/api"
