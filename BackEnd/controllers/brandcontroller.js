@@ -13,18 +13,26 @@ router.get('/', function(req, res) {
 router.get('/:brand', function(req, res) {
     console.log(req.params.brand)
     db.getBrand(req.params.brand).then(results => {
-        res.send(results)
+        if(results != null){
+            res.status(200).send(results)
+        }
+        else{
+            res.status(404).end()
+        }
     })
 })
 
 // Get models for individual brand
-router.get('/:name', function(req, res) {
-    db.getAllModelsGivenBrand(req.params.name).then(results => {
-        res.json( 
-        {
-            name: req.params.name, 
-            models: results
-        })
+router.get('/:brand/models', function(req, res) {
+    db.getAllModelsGivenBrand(req.params.brand).then(results => {
+        console.log('Hi: ',results)
+        if(results != null){
+            res.status(200).send(results)
+        }
+        else{
+            res.status(404).end()
+        }
+        
     })
 })
 

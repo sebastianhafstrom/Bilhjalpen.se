@@ -11,8 +11,11 @@ router.get('/', function(req, res) {
 
 // Get data of one model
 router.get('/:model', function(req, res) {
-    db.getModel(req.params.model).then(results => {
-        res.send(results)
+    db.getModel(req.params.model).then(foundModel => {
+        if(foundModel != null) {
+            res.status(200).send(foundModel)
+        } else
+            res.status(404).end()
     })
 })
 
