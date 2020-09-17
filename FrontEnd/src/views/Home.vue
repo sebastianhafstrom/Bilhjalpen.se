@@ -1,14 +1,13 @@
 <template>
   <div>
-    <v-img :src="require('../assets/carpark.jpg')" style="height: 50vw; min-height: 300px; max-height:600px;">
+    <v-img src="/img/carpark.jpg" style="height: 50vw; min-height: 400px; max-height:600px;">
     <v-row
-      style="height: 50vw; min-height: 300px; max-height:600px; background-color: rgba(50, 50, 50, 0.8);"
+      style="background-color: rgba(50, 50, 50, 0.8); height: 100%;"
       align="center"
       justify="center"
     >
         <div class="py-4 px-8 d-flex text-center flex-column align-center" style="width: 80%;">
-          <h1 class="display-1 font-weight-thin mb-4 white--text">Vi hjälper dig hitta den perfekta bilen, oavsett livsstil, behov och önskemål.</h1>
-          <p class="subheading white--text">Låt oss hjälpa dig hitta din nya bil</p>
+          <h1 class="display-1 font-weight-thin mb-4 white--text">Bilhjälpen hjälper dig hitta din nya bil</h1>
           <v-btn color="primary" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
         </div>
     </v-row>

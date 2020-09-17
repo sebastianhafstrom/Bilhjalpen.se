@@ -1,7 +1,7 @@
 <template>
   <nav>
     <v-app-bar color="primary" dark height="60">
-        <router-link to="/"><v-img alt="Bilhjälpen.se logo" class="my-8" :src="require('../assets/logo.png')" to="/" max-height="50" max-width="250" position="left" /></router-link>
+        <router-link to="/"><v-img alt="Bilhjälpen.se logo" class="my-8" src="/img/logo.png" to="/" max-height="50" max-width="250" position="left" /></router-link>
         <v-spacer></v-spacer>
         <v-toolbar-items v-if="$mq === 'laptop' || $mq === 'desktop'">
           <v-btn text to="/">Hem</v-btn>
@@ -28,7 +28,7 @@
           </v-menu>
           <v-btn text to="/om">Om Bilhjälpen.se</v-btn>
         </v-toolbar-items>
-        <v-app-bar-nav-icon v-if="$mq === 'tablet' || $mq === 'mobile'" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-icon v-if="$mq === 'tablet' || $mq === 'mobile'" @click.stop="drawer = !drawer" dark right large>{{ mdiMenu }}</v-icon>
       
     </v-app-bar>
 
@@ -56,9 +56,12 @@
 </template>
 
 <script>
+import { mdiMenu } from '@mdi/js';
+
 export default {
   name: "Navbar",
   data: () => ({
+    mdiMenu,
     drawer: false, // Hide mobile side menu by default
     items: [
       { text: "Hem", link: "/" },

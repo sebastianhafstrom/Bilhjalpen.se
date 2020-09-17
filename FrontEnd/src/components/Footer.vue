@@ -4,7 +4,7 @@
       class="font-weight-medium d-flex flex-column align-center justify-center py-4"
       dark
     >
-        <router-link to="/"><v-img alt="Bilhjälpen.se logo" class="mr-3" :src="require('../assets/logo.png')" to="/" max-width="300" position="left" /></router-link>
+        <router-link to="/"><v-img alt="Bilhjälpen.se logo" class="mr-3" src="/img/logo.png" to="/" max-width="300" position="left" /></router-link>
         <div class="flex-row">
           <v-btn class="mt-4" dark text to="/bilar">Alla Bilar</v-btn>
           <v-btn class="mt-4" dark text to="/om">Om Bilhjälpen.se</v-btn>
