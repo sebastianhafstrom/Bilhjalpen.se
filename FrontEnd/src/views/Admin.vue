@@ -12,11 +12,9 @@
 
     <div class="generalcontainer">
         <div class="button button-tag-mid inverted-green" @click="getAllCars()">Get all cars</div>
-        {{cars.length}}
     </div>
     <div class="generalcontainer">
         <div class="button button-tag-mid inverted-green" @click="getAllBrands()">Get all brands</div>
-        {{brands.length}}
     </div>
     <!-- 
     <div class="generalcontainer">
@@ -73,7 +71,7 @@ export default{
             for (i=0; i < staticSites.length; i++) {
                 url = doc.createElement("url");
                 loc = doc.createElement('loc');
-                loc.innerHTML = 'https://www.bilhjälpen.se/' + staticSites[i];
+                loc.innerHTML = 'https://xn--bilhjlpen-z2a.se/bil/' + staticSites[i];
                 changefreq = doc.createElement("changefreq");
                 changefreq.innerHTML = 'monthly';
                 url.appendChild(loc);
@@ -85,7 +83,8 @@ export default{
             for (i=0; i < this.cars.length; i++) {
                 url = doc.createElement("url");
                 loc = doc.createElement('loc');
-                loc.innerHTML = 'https://www.bilhjälpen.se/bil/' + this.cars[i].model;
+                console.log(this.cars[i].name)
+                loc.innerHTML = 'https://xn--bilhjlpen-z2a.se/bil/' + this.cars[i].name;
                 changefreq = doc.createElement("changefreq");
                 changefreq.innerHTML = 'weekly';
                 url.appendChild(loc);
@@ -187,7 +186,7 @@ export default{
             api
                 .get("/models")
                 .then((response) => {
-                this.cars = response.data;
+                this.cars = response.data.models;
                 })
                 .catch((error) => {
                 console.log(error);
@@ -197,3 +196,8 @@ export default{
         
    }
 }
+</script>
+
+Samlad info
+Oberoende jämförelser
+Personlig 
