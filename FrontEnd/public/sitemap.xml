@@ -1,37 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://xn--bilhjlpen-z2a.se/</loc>
-  <lastmod>2020-09-17T16:35:31+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://xn--bilhjlpen-z2a.se/bilar</loc>
-  <lastmod>2020-09-17T16:35:31+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://xn--bilhjlpen-z2a.se/om/</loc>
-  <lastmod>2020-09-17T16:35:31+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://xn--bilhjlpen-z2a.se/kategori/miljo/</loc>
-  <lastmod>2020-09-17T16:35:31+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://xn--bilhjlpen-z2a.se/kategori/el/</loc>
-  <lastmod>2020-09-17T16:35:31+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/om</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/kategori/el</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/kategori/miljo</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/bilar</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/marken</loc>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A1 Citycarver</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A1 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A3 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A4 Allroad Quattro</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A4 Avant</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A4 Avant g-tron</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A4 Sedan</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A5 Cabriolet</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A5 Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A5 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A5 Sportback g-tron</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A6 Allroad Quattro</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A6 Avant</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A6 Sedan</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A7 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A7 Sportback TFSI e</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A8</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A8 L</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/A8 TFSI e</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q2</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q3</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q3 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q5</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q5 TFSI e</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q7</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q7 TFSI e</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/Q8</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/R8 Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/R8 Spyder</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS Q3</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS Q3 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS Q8</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS4 Avant</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS5 Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS5 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS6 Avant</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/RS7 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S4 Avant</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S4 Sedan</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S5 Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S5 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S6 Avant</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S6 Sedan</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S7 Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/S8 TFSI</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/SQ2</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/SQ5</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/SQ7 TDI</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/SQ8 TDI</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/TT Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/TT RS Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/TT RS Roadster</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/TT Roadster</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/TTS Coupé</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/TTS Roadster</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/XC90</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/e-tron</loc>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
+        <loc>https://xn--bilhjlpen-z2a.se/e-tron Sportback</loc>
+        <changefreq>weekly</changefreq>
+    </url>
 </urlset>

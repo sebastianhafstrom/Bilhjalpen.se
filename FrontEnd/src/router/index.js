@@ -9,6 +9,7 @@ import Elbilar from '../views/Elbilar.vue'
 import Miljobilar from '../views/Miljobilar.vue'
 import Brand from '../views/Brand.vue'
 import Brands from '../views/Brands.vue'
+import Admin from '../views/Admin.vue'
 import { api } from '@/Api.js'
 
 Vue.use(VueRouter)
@@ -91,6 +92,11 @@ const routes = [
         path: '/om',
         name: 'Om',
         component: About,
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: Admin
     },
     {
         path: '/404',
