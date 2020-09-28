@@ -7,14 +7,14 @@
       justify="center"
     >
         <div class="py-4 px-8 d-flex text-center flex-column align-center" style="width: 80%;">
-          <h1 class="display-1 font-weight-thin mb-4 white--text">Bilhjälpen hjälper dig hitta din nya bil</h1>
-          <v-btn color="primary" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
+          <h1 id="biljhälpen-title" class="display-1 font-weight-thin mb-4 white--text">Bilhjälpen hjälper dig hitta din nya bil</h1>
+          <v-btn color="primary" id="visa-alla-bilar" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
         </div>
     </v-row>
     </v-img>
 
     <v-container>
-      <h2 class="text-center headline my-6">De populäraste kategorierna</h2>    
+      <h2 id="popular-categories" class="text-center headline my-6">De populäraste kategorierna</h2>    
       <v-row class="fill-height" align="center" justify="center">
         <CategoryButton
           v-for="(item, index) in items"
