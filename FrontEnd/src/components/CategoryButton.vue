@@ -5,7 +5,7 @@
         <v-card :elevation="hover ? 12 : 2" :class="{ 'on-hover': hover }" :color="item.color">
           <v-card-title class="title white--text align-self-center">
             <v-row class="fill-height flex-column" justify="space-between">
-              <p class="mt-4 subheading text-center">{{ item.title }}</p>
+              <p id="categories-option" class="mt-4 subheading text-center">{{ item.title }}</p>
 
               <div>
                 <p class="ma-0 body-1 text-center">{{ item.text }}</p>
