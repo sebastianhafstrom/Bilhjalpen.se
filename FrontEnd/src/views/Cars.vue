@@ -70,7 +70,7 @@
     
     <v-row v-if="loading === false">
       <CarCard
-          v-for="(model, index) in filteredModels"
+          v-for="(model, index) in models"
           v-bind:model="model"
           v-bind:key="index" />
     </v-row>
@@ -114,15 +114,15 @@ export default {
     loading: true,
   }),
   created() {
-    if(this.$store.getters.getCars.length == 0){
-      this.getModels()
-    }else{
-      this.loading = false
-      this.models = this.$store.getters.getCars
-      this.getBodyTypesFromModels()
-      this.getFuelTypesFromModels()
-      this.getStoreStuff()
-    }
+    //if(this.$store.getters.getCars.length == 0){
+    this.getModels()
+    //}else{
+    //  this.loading = false
+    //  this.models = this.$store.getters.getCars
+    //  this.getBodyTypesFromModels()
+    //  this.getFuelTypesFromModels()
+    //  this.getStoreStuff()
+    //}
     
   },
   methods: {
@@ -272,13 +272,14 @@ export default {
     },
     getModels() {
       api
-        .get("/specs")
+        .get("/models")
         .then((response) => {
-          this.models = response.data;
-          this.getBodyTypesFromModels();
-          this.getFuelTypesFromModels();
-          this.$store.commit("setCars", this.models);
-          this.getStoreStuff()
+          this.models = response.data.models;
+          console.log(this.models)
+          //this.getBodyTypesFromModels();
+          //this.getFuelTypesFromModels();
+          //this.$store.commit("setCars", this.models);
+          //this.getStoreStuff()
         })
         .catch((error) => {
           console.log(error);

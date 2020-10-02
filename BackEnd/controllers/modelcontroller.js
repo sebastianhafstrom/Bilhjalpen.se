@@ -4,7 +4,10 @@ var router = express.Router()
 
 // Get all models
 router.get('/', function(req, res) {
-    db.getAllModels().then(results => {
+    /*db.getAllModels().then(results => {
+        res.json({models: results})
+    })*/
+    db.newGetAllModels().then(results => {
         res.json({models: results})
     })
 })

@@ -16,6 +16,11 @@ client.connect(err => {
     brands = db.collection('brands')
     models = db.collection('models')
     specs = db.collection('specs')
+
+    const newDB = client.db('bilhjalpen')
+    newModels = newDB.collection('unique-models')
+
+
 })
 
 // Brandcontroller
@@ -39,6 +44,12 @@ function getAllModelsGivenBrand(brandName) {
 // Modelcontroller
 function getAllModels() {
     let doc = models.find().sort({name: 1}).toArray().catch(error => console.error(error))
+    return doc
+}
+
+function newGetAllModels() {
+    console.log('Hi')
+    let doc = newModels.find({}, {projection: { _id: 0}}).sort({name: 1}).toArray().catch(error => console.error(error))
     return doc
 }
 
@@ -92,5 +103,6 @@ module.exports = {
     getAllElectric,
     getAllEnvironmental,
     getBrand,
-    getModelWithSpecsFromBrand
+    getModelWithSpecsFromBrand,
+    newGetAllModels
 }
