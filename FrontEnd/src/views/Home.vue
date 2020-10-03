@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 <div>
   <div style="min-height: 20vw; width: 100%;" class="d-flex">
     <div id="main-box" class="justify-center d-flex flex-column" style="padding-left: 30px; padding-right: 20px;">
@@ -54,21 +53,6 @@ hitta <span style="color: #F17544">din</span> nya bil</h1>
       </v-row>
   </div>
   
-=======
-  <div>
-    <v-img src="/img/carpark.jpg" style="height: 50vw; min-height: 400px; max-height:600px;">
-    <v-row
-      style="background-color: rgba(50, 50, 50, 0.8); height: 100%;"
-      align="center"
-      justify="center"
-    >
-        <div class="py-4 px-8 d-flex text-center flex-column align-center" style="width: 80%;">
-          <h1 id="biljhälpen-title" class="display-1 font-weight-thin mb-4 white--text">Bilhjälpen hjälper dig hitta din nya bil</h1>
-          <v-btn color="primary" id="visa-alla-bilar" class=" white--text mt-8" to="/bilar" tile>Visa alla bilar</v-btn>
-        </div>
-    </v-row>
-    </v-img>
->>>>>>> master
 
 
   <!-- <div style="background-color: #254E58; height: 50vw; min-height: 400px; max-height: 700px;">
